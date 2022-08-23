@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7022A2C5-7B02-4D9B-BF9B-02AAC2FC03D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{F6216314-0012-4CF0-BF38-D25719010F96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Styles", "Styles", "{F96D98E0-2761-44E4-A246-E6FB375D8FC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarbleUI.Controls", "src\Controls\MarbleUI.Controls\MarbleUI.Controls.csproj", "{742BE386-471E-4695-BB37-BADA06225825}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F6216314-0012-4CF0-BF38-D25719010F96} = {7022A2C5-7B02-4D9B-BF9B-02AAC2FC03D4}
+		{F96D98E0-2761-44E4-A246-E6FB375D8FC7} = {7022A2C5-7B02-4D9B-BF9B-02AAC2FC03D4}
+		{742BE386-471E-4695-BB37-BADA06225825} = {F6216314-0012-4CF0-BF38-D25719010F96}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{742BE386-471E-4695-BB37-BADA06225825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{742BE386-471E-4695-BB37-BADA06225825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{742BE386-471E-4695-BB37-BADA06225825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{742BE386-471E-4695-BB37-BADA06225825}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
