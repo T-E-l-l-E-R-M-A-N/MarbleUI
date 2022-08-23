@@ -1,0 +1,93 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="CheckBox">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="3"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="CheckBox">
+                <StackPanel Orientation="Horizontal">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderBrush}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            VerticalAlignment="Center"
+                            Width="12"
+                            Height="12">
+                        <Viewbox x:Name="PART_CheckView" Width="10"
+                                 Height="10">
+                            <Canvas>
+                                <Path Width="10" 
+                                      Height="10" 
+                                      x:Name="PART_CheckMark"
+                                      Data="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                            </Canvas>
+                        </Viewbox>
+                    </Border>
+                    <ContentControl Content="{TemplateBinding Content}"
+                                    VerticalAlignment="Center"
+                                    Margin="5,0,0,0"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}">
+                    
+                    </ContentControl>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="CheckBox /template/ Viewbox#PART_CheckView">
+        <Setter Property="IsVisible" Value="False"/>
+    </Style>
+    
+    <Style Selector="CheckBox:pointerover">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="CheckBox:pressed">
+        <Setter Property="RenderTransform" Value="scale(1)"/>
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="CheckBox:checked">
+        <Setter Property="Background" Value="{DynamicResource DefaultAccentBrush}"/>
+    </Style>
+    
+    <Style Selector="CheckBox[IsActive=False]:checked">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultForegroundBrush}"/>
+    </Style>
+    
+    <Style Selector="CheckBox:checked /template/ Viewbox#PART_CheckView">
+        <Setter Property="IsVisible" Value="True"/>
+    </Style>
+    
+    <Style Selector="CheckBox:checked /template/ Path#PART_CheckMark">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBrush}"/>
+    </Style>
+    
+    <Style Selector="Window[IsActive=False] CheckBox:checked /template/ Path#PART_CheckMark">
+        <Setter Property="Fill" Value="{DynamicResource DefaultForegroundBrush}"/>
+    </Style>
+    
+    <Style Selector="CheckBox:checked:pressed">
+        <Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
+    </Style>
+    
+    <Style Selector="CheckBox:focus">
+        <Setter Property="BorderThickness" Value="4"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}"/>
+    </Style>
+    
+    <Style Selector="CheckBox:disabled">
+        <Setter Property="Opacity" Value="0.8"/>
+    </Style>
+</Styles>
