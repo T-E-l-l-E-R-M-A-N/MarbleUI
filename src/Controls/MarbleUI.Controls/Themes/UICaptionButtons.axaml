@@ -1,0 +1,83 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="controls|UICaptionButtons">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="controls:UICaptionButtons">
+                <StackPanel Spacing="2" 
+                            VerticalAlignment="Stretch" 
+                            Background="Transparent" 
+                            TextBlock.FontSize="10" 
+                            Orientation="Horizontal">
+                    <Button x:Name="PART_CloseButton">
+                    </Button>
+                    <Button x:Name="PART_MinimiseButton"
+                            Margin="6,0">
+                    </Button>
+                    <Button x:Name="PART_FullScrButton"
+                            IsVisible="True">
+                    </Button>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button">
+        <Setter Property="Width" Value="12"/>
+        <Setter Property="Height" Value="12"/>
+        <Setter Property="CornerRadius" Value="6"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_CloseButton">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsCloseButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsCloseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_MinimiseButton">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsMinimiseButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsMinimiseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_FullScrButton">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsFullScreenButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsFullScreenButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_CloseButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsCloseButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsCloseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_MinimiseButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsMinimiseButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsMinimiseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_FullScrButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsFullScreenButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsFullScreenButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_CloseButton:pressed">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsCloseButtonBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsCloseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_MinimiseButton:pressed">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsMinimiseButtonBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsMinimiseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="controls|UICaptionButtons /template/ Button#PART_FullScrButton:pressed">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsFullScreenButtonBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsFullScreenButtonBorderBrush}"/>
+    </Style>
+</Styles>

@@ -1,0 +1,99 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="RadioButton">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <StackPanel Orientation="Horizontal">
+                    <Border BorderThickness="1"
+                            Background="Transparent"
+                            CornerRadius="3"
+                            VerticalAlignment="Center"
+                            Width="20"
+                            Height="20">
+                        <Viewbox Stretch="Uniform" Margin="0.3">
+                            <Canvas Width="18" Height="18">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="0" Y="0" />
+                                </Canvas.RenderTransform>
+                                <Canvas.Resources />
+                                <Ellipse Canvas.Left="0" Canvas.Top="0" Width="18" Height="18" Name="path62" />
+                                
+                                <Path Name="path66" Canvas.Left="1" Canvas.Top="1" RenderTransform="scale(1.1)" />
+                                <Ellipse Name="path12" Canvas.Left="1" Canvas.Top="1" Width="16" Height="16" RenderTransform="scale(0.50)"></Ellipse>
+                            </Canvas>
+                        </Viewbox>
+                    </Border>
+                    <ContentControl Content="{TemplateBinding Content}"
+                                    VerticalAlignment="Center"
+                                    Margin="5,0,0,0"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="RadioButton /template/ Ellipse#path12">
+        <Setter Property="IsVisible" Value="False" />
+    </Style> 
+    <Style Selector="RadioButton /template/ Ellipse#path62">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBrush}" />
+    </Style>
+
+    <Style Selector="RadioButton /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBorderBrush}" />
+        <Setter Property="Data">
+            <PathGeometry Figures="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" FillRule="NonZero"/>
+        </Setter>
+    </Style>
+
+    <Style Selector="RadioButton:pressed /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBorderBrush}" />
+    </Style>
+
+    <Style Selector="RadioButton:checked /template/ Path#path66">
+        <Setter Property="IsVisible" Value="false" />
+    </Style>
+    
+    <Style Selector="RadioButton:checked /template/ Ellipse#path12">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBrush}" />
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+    
+    <Style Selector="RadioButton:checked /template/ Ellipse#path62">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlAccentBrush}" />
+    </Style>
+    
+    <Style Selector="RadioButton:checked:pressed /template/ Ellipse#path62">
+        <Setter Property="Fill" Value="{DynamicResource PressedButtonBrush}" />
+    </Style>
+    
+    
+    <Style Selector=":is(Window)[IsActive=False] RadioButton:checked /template/ Ellipse#path62">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBrush}" />
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector=":is(Window)[IsActive=False] RadioButton:checked /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBorderBrush}" />
+    </Style>
+    
+    <Style Selector=":is(Window)[IsActive=False] RadioButton:checked /template/ Ellipse#path12">
+        <Setter Property="Fill" Value="{DynamicResource DefaultForegroundBrush}" />
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector="RadioButton:checked:pressed /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource PressedButtonBrush}" />
+    </Style>
+
+    <Style Selector="RadioButton:disabled /template/ Border">
+        <Setter Property="Opacity" Value="0.8" />
+    </Style>
+</Styles>

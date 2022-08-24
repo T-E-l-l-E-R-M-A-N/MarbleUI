@@ -8,4 +8,5 @@
 
     <!-- Add Styles Here -->
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Window.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/UICaptionButtons.axaml"/>
 </Styles>

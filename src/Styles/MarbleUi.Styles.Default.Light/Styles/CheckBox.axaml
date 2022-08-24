@@ -1,5 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MarbleUI.Controls;assembly=MarbleUI.Controls">
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
@@ -8,86 +9,118 @@
 
     <!-- Add Styles Here -->
     <Style Selector="CheckBox">
-        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="CornerRadius" Value="3"/>
         <Setter Property="Template">
             <ControlTemplate TargetType="CheckBox">
                 <StackPanel Orientation="Horizontal">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderBrush}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
+                    <Border BorderThickness="1"
+                            Background="Transparent"
+                            CornerRadius="3"
                             VerticalAlignment="Center"
-                            Width="12"
-                            Height="12">
-                        <Viewbox x:Name="PART_CheckView" Width="10"
-                                 Height="10">
-                            <Canvas>
-                                <Path Width="10" 
-                                      Height="10" 
-                                      x:Name="PART_CheckMark"
-                                      Data="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                            Width="16"
+                            Height="16">
+                        <Viewbox Stretch="Uniform">
+                            <Canvas Width="16" Height="16">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="0" Y="0" />
+                                </Canvas.RenderTransform>
+                                <Canvas.Resources />
+                                <Path Name="path62" Fill="{DynamicResource DefaultControlBrush}">
+                                    <Path.Data>
+                                        <PathGeometry Figures="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z"
+                                                      FillRule="NonZero" />
+                                    </Path.Data>
+                                </Path>
+                                <Path Name="path66" />
+                                <Path Name="path12" />
                             </Canvas>
                         </Viewbox>
                     </Border>
                     <ContentControl Content="{TemplateBinding Content}"
                                     VerticalAlignment="Center"
                                     Margin="5,0,0,0"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}">
-                    
-                    </ContentControl>
+                                    ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
     </Style>
-    
-    <Style Selector="CheckBox /template/ Viewbox#PART_CheckView">
-        <Setter Property="IsVisible" Value="False"/>
+
+    <Style Selector="CheckBox /template/ Path#path12">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="CheckBox /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBorderBrush}" />
+        <Setter Property="Data">
+            <PathGeometry
+                Figures="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                FillRule="NonZero" />
+        </Setter>
+    </Style>
+
+    <Style Selector="CheckBox:pressed /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBorderBrush}" />
+    </Style>
+
+    <Style Selector="CheckBox:checked /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlAccentBrush}" />
+        <Setter Property="Data">
+            <PathGeometry
+                Figures="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"
+                FillRule="NonZero" />
+        </Setter>
+    </Style>
+
+    <Style Selector=":is(Window)[IsActive=False] CheckBox:checked /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBorderBrush}" />
+        <Setter Property="Data">
+            <PathGeometry
+                Figures="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                FillRule="NonZero" />
+        </Setter>
     </Style>
     
-    <Style Selector="CheckBox:pointerover">
-        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+    <Style Selector=":is(Window)[IsActive=False] CheckBox:checked /template/ Path#path12">
+        <Setter Property="Fill" Value="{DynamicResource DefaultForegroundBrush}" />
+        <Setter Property="IsVisible" Value="True" />
+        <Setter Property="Data">
+            <PathGeometry Figures="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" FillRule="NonZero"/>
+        </Setter>
     </Style>
     
-    <Style Selector="CheckBox:pressed">
-        <Setter Property="RenderTransform" Value="scale(1)"/>
-        <Setter Property="Background" Value="{DynamicResource DefaultControlBorderBrush}"/>
+    <Style Selector=":is(Window)[IsActive=False] CheckBox:checked /template/ Path#path12">
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+ 
+    <Style Selector="CheckBox[IsThreeState=True]:checked /template/ Path#path66">
+        <Setter Property="Data">
+            <PathGeometry
+                Figures="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"
+                FillRule="NonZero" />
+        </Setter>
+    </Style>
+
+    <Style Selector=":is(Window)[IsActive=False] CheckBox[IsThreeState=True]:checked /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource DefaultControlBorderBrush}" />
+        <Setter Property="Data">
+            <PathGeometry
+                Figures="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                FillRule="NonZero" />
+        </Setter>
     </Style>
     
-    <Style Selector="CheckBox:checked">
-        <Setter Property="Background" Value="{DynamicResource DefaultAccentBrush}"/>
+    <Style Selector=":is(Window)[IsActive=False] CheckBox[IsThreeState=True]:checked /template/ Path#path12">
+        <Setter Property="Fill" Value="{DynamicResource DefaultForegroundBrush}" />
+        <Setter Property="IsVisible" Value="True" />
+        <Setter Property="Data">
+            <PathGeometry Figures="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" FillRule="NonZero"/>
+        </Setter>
     </Style>
-    
-    <Style Selector="CheckBox[IsActive=False]:checked">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DefaultForegroundBrush}"/>
+
+    <Style Selector="CheckBox:checked:pressed /template/ Path#path66">
+        <Setter Property="Fill" Value="{DynamicResource PressedButtonBrush}" />
     </Style>
-    
-    <Style Selector="CheckBox:checked /template/ Viewbox#PART_CheckView">
-        <Setter Property="IsVisible" Value="True"/>
-    </Style>
-    
-    <Style Selector="CheckBox:checked /template/ Path#PART_CheckMark">
-        <Setter Property="Fill" Value="{DynamicResource DefaultControlBrush}"/>
-    </Style>
-    
-    <Style Selector="Window[IsActive=False] CheckBox:checked /template/ Path#PART_CheckMark">
-        <Setter Property="Fill" Value="{DynamicResource DefaultForegroundBrush}"/>
-    </Style>
-    
-    <Style Selector="CheckBox:checked:pressed">
-        <Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
-    </Style>
-    
-    <Style Selector="CheckBox:focus">
-        <Setter Property="BorderThickness" Value="4"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}"/>
-    </Style>
-    
-    <Style Selector="CheckBox:disabled">
-        <Setter Property="Opacity" Value="0.8"/>
+
+    <Style Selector="CheckBox:disabled /template/ Border">
+        <Setter Property="Opacity" Value="0.8" />
     </Style>
 </Styles>

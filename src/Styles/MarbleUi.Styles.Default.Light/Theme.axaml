@@ -11,9 +11,17 @@
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/AccentBrushes.axaml"/>
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/ButtonBrushes.axaml"/>
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/GenericBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/UIIconBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/CaptionButtonsBrushes.axaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
 
     <!-- Add Styles Here -->
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/Button.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/ToggleButton.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/CheckBox.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/RadioButton.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/TextBox.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/Expander.axaml"/>
 </Styles>

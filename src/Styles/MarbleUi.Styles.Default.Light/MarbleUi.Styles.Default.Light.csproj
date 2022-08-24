@@ -7,4 +7,8 @@
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="0.10.18" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Controls\MarbleUI.Controls\MarbleUI.Controls.csproj" />
+    </ItemGroup>
 </Project>

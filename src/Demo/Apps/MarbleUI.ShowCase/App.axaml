@@ -1,0 +1,9 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MarbleUI.ShowCase.App">
+    <Application.Styles>
+        <FluentTheme Mode="Light"/>
+        <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Theme.axaml"/>
+        <StyleInclude Source="avares://MarbleUI.Controls/Themes/Generic.axaml"/>
+    </Application.Styles>
+</Application>
