@@ -8,263 +8,328 @@
                    Title="MarbleUI.ShowCase"
                    FontFamily="SF NS Display"
                    Foreground="{DynamicResource DefaultForegroundBrush}">
-    <controls:UISplitView PaneAlignment="Right"
-                              SplitPaneIsVisible="True"
-                              SplitPaneLength="207">
+    <controls:UISplitView PaneAlignment="Left"
+                          SplitPaneLength="207"
+                          x:Name="UiSplitView">
         <controls:UISplitView.ToolBar>
             <controls:UIToolBar IsToolBarVisible="True" Height="53" ToolBarMode="OnlyIcon">
-                <StackPanel Orientation="Horizontal">
-                    <controls:UIToolBarItem Label="ActionSheet">
-                        <ToggleButton IsChecked="{Binding ActionSheetService.SheetShow, Mode=OneWay}"
-                                      Command="{Binding ShowActionSheetCommand}">
-                            <Viewbox Stretch="None">
-                                <Canvas Width="16" Height="16">
-                                    <Canvas.RenderTransform>
-                                        <TranslateTransform X="0" Y="0" />
-                                    </Canvas.RenderTransform>
-                                    <Canvas.Resources />
-                                    <Path Fill="{DynamicResource UIIconFillBrush}">
-                                        <Path.Data>
-                                            <PathGeometry
-                                                Figures="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
-                                                FillRule="NonZero" />
-                                        </Path.Data>
-                                    </Path>
-                                </Canvas>
-                            </Viewbox>
-                        </ToggleButton>
-                    </controls:UIToolBarItem>
-                    <controls:UIToolBarItem Label="ActionSheet">
-                        <Button Command="{Binding ShowActionBoxCommand}">
-                            <Viewbox Stretch="None">
-                                <Canvas Width="16" Height="16">
-                                    <Canvas.RenderTransform>
-                                        <TranslateTransform X="0" Y="0" />
-                                    </Canvas.RenderTransform>
-                                    <Canvas.Resources />
-                                    <Path Fill="{DynamicResource UIIconFillBrush}">
-                                        <Path.Data>
-                                            <PathGeometry
-                                                Figures="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
-                                                FillRule="NonZero" />
-                                        </Path.Data>
-                                    </Path>
-                                </Canvas>
-                            </Viewbox>
-                        </Button>
-                    </controls:UIToolBarItem>
-                </StackPanel>
+                <Grid ColumnDefinitions="Auto * Auto">
+                    <StackPanel Orientation="Horizontal">
+
+                        <controls:UIToolBarItem Margin="2.5,0" Label="Sidebar">
+                            <ToggleButton IsChecked="{Binding #UiSplitView.SplitPaneIsVisible, Mode=TwoWay}">
+                                <Viewbox Stretch="None">
+                                    <Canvas Width="16" Height="16">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0" />
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources />
+                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                            <Path.Data>
+                                                <PathGeometry
+                                                    Figures="M3.5 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM3 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"
+                                                    FillRule="NonZero" />
+                                            </Path.Data>
+                                        </Path>
+                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                            <Path.Data>
+                                                <PathGeometry
+                                                    Figures="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm12-1v14h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 0H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h9V1z"
+                                                    FillRule="NonZero" />
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Viewbox>
+                            </ToggleButton>
+                        </controls:UIToolBarItem>
+                        <controls:UIToolBarItem Margin="2.5,0" Label="ActionBox">
+                            <Button Command="{Binding ShowActionBoxCommand}">
+                                <Viewbox Stretch="None">
+                                    <Canvas Width="16" Height="16">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0" />
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources />
+                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                            <Path.Data>
+                                                <PathGeometry
+                                                    Figures="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                                                    FillRule="NonZero" />
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </controls:UIToolBarItem>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2"
+                    Orientation="Horizontal">
+                        <controls:UIToolBarItem Margin="2.5,0" Label="Tab Strip">
+                            <ToggleButton IsChecked="{Binding #TabView.TabStripIsVisible, Mode=TwoWay}">
+                                <Viewbox Stretch="None">
+                                    <Canvas Width="16" Height="16">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0" />
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources />
+                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                            <Path.Data>
+                                                <PathGeometry
+                                                    Figures="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                                                    FillRule="NonZero" />
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Viewbox>
+                            </ToggleButton>
+                        </controls:UIToolBarItem>
+                        <controls:UIToolBarItem Margin="2.5,0" Label="New Tab">
+                            <Button Command="{Binding CreateTabsCommand}">
+                                <Viewbox Stretch="None">
+                                    <Canvas Width="16" Height="16">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0" />
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources />
+                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                            <Path.Data>
+                                                <PathGeometry
+                                                    Figures="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+                                                    FillRule="EvenOdd"/>
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </controls:UIToolBarItem>
+                    </StackPanel>
+                </Grid>
             </controls:UIToolBar>
         </controls:UISplitView.ToolBar>
-        <Grid>
-            <ScrollViewer Background="{DynamicResource DefaultControlBrush}">
-                <ScrollViewer.Styles>
-                    <Style Selector="Expander">
-                        <Setter Property="IsExpanded" Value="True" />
-                    </Style>
-                </ScrollViewer.Styles>
-                <StackPanel VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
-                            Margin="0,90,0,50">
-                    <TextBlock Text="MarbleUI" FontSize="24" FontWeight="Black" />
-                    <TextBlock Text="is UI theme library for Avalonia UI in macOS-like sty" TextAlignment="Right"
-                               FontSize="14" FontFamily="Black" />
-
-                    <Expander Header="CheckBox" Margin="10,0">
-                        <StackPanel Spacing="5">
-                            <CheckBox Content="default" />
-                            <CheckBox Content="isthreestate(true)" IsThreeState="True" />
-                        </StackPanel>
-                    </Expander>
-
-                    <Expander Header="TextBox" Margin="10,0">
-                        <StackPanel Spacing="5">
-                            <StackPanel.Styles>
-                                <Style Selector="TextBox">
-                                    <Setter Property="Height" Value="24" />
-                                    <Setter Property="VerticalContentAlignment" Value="Center" />
+        <controls:TabView ItemStripAlignment="Top"
+                          x:Name="TabView"
+                          Content="{Binding SelectedTabViewModel, Mode=TwoWay}"
+                          Items="{Binding SimpleTabViewModelsCollection}">
+            <controls:TabView.ItemHeaderTemplate>
+                <DataTemplate>
+                    <TextBlock VerticalAlignment="Center"
+                               TextAlignment="Center"
+                               FontSize="12"
+                               Text="{Binding }" />
+                </DataTemplate>
+            </controls:TabView.ItemHeaderTemplate>
+            <controls:TabView.ContentTemplate>
+                <DataTemplate>
+                    <Grid Background="Teal">
+                        <ScrollViewer Background="{DynamicResource DefaultControlBrush}">
+                            <ScrollViewer.Styles>
+                                <Style Selector="Expander">
+                                    <Setter Property="IsExpanded" Value="True" />
                                 </Style>
-                            </StackPanel.Styles>
-                            <TextBox Width="240" />
-                            <TextBox Width="240" UseFloatingWatermark="True" Watermark="Watermark" />
-                            <TextBox Width="240">
-                                <TextBox.InnerLeftContent>
-                                    <Viewbox Stretch="None">
-                                        <Canvas Width="16" Height="16">
-                                            <Canvas.RenderTransform>
-                                                <TranslateTransform X="0" Y="0" />
-                                            </Canvas.RenderTransform>
-                                            <Canvas.Resources />
-                                            <Path Fill="{DynamicResource UIIconFillBrush}">
-                                                <Path.Data>
-                                                    <PathGeometry
-                                                        Figures="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                                                        FillRule="NonZero" />
-                                                </Path.Data>
-                                            </Path>
-                                        </Canvas>
-                                    </Viewbox>
-                                </TextBox.InnerLeftContent>
-                            </TextBox>
-                            <TextBox Width="240">
-                                <TextBox.InnerRightContent>
-                                    <Viewbox Stretch="None">
-                                        <Canvas Width="16" Height="16">
-                                            <Canvas.RenderTransform>
-                                                <TranslateTransform X="0" Y="0" />
-                                            </Canvas.RenderTransform>
-                                            <Canvas.Resources />
-                                            <Path Fill="{DynamicResource UIIconFillBrush}">
-                                                <Path.Data>
-                                                    <PathGeometry
-                                                        Figures="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
-                                                        FillRule="NonZero" />
-                                                </Path.Data>
-                                            </Path>
-                                        </Canvas>
-                                    </Viewbox>
-                                </TextBox.InnerRightContent>
-                            </TextBox>
-                            <TextBox Width="240">
-                                <TextBox.InnerLeftContent>
-                                    <Viewbox Stretch="None">
-                                        <Canvas Width="16" Height="16">
-                                            <Canvas.RenderTransform>
-                                                <TranslateTransform X="0" Y="0" />
-                                            </Canvas.RenderTransform>
-                                            <Canvas.Resources />
-                                            <Path Fill="{DynamicResource UIIconFillBrush}">
-                                                <Path.Data>
-                                                    <PathGeometry
-                                                        Figures="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                                                        FillRule="NonZero" />
-                                                </Path.Data>
-                                            </Path>
-                                        </Canvas>
-                                    </Viewbox>
-                                </TextBox.InnerLeftContent>
-                                <TextBox.InnerRightContent>
-                                    <Viewbox Stretch="None">
-                                        <Canvas Width="16" Height="16">
-                                            <Canvas.RenderTransform>
-                                                <TranslateTransform X="0" Y="0" />
-                                            </Canvas.RenderTransform>
-                                            <Canvas.Resources />
-                                            <Path Fill="{DynamicResource UIIconFillBrush}">
-                                                <Path.Data>
-                                                    <PathGeometry
-                                                        Figures="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
-                                                        FillRule="NonZero" />
-                                                </Path.Data>
-                                            </Path>
-                                        </Canvas>
-                                    </Viewbox>
-                                </TextBox.InnerRightContent>
-                            </TextBox>
-                            <TextBox Width="240" UseFloatingWatermark="True" Watermark="Watermark">
-                                <TextBox.InnerLeftContent>
-                                    <Viewbox Stretch="None">
-                                        <Canvas Width="16" Height="16">
-                                            <Canvas.RenderTransform>
-                                                <TranslateTransform X="0" Y="0" />
-                                            </Canvas.RenderTransform>
-                                            <Canvas.Resources />
-                                            <Path Fill="{DynamicResource UIIconFillBrush}">
-                                                <Path.Data>
-                                                    <PathGeometry
-                                                        Figures="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                                                        FillRule="NonZero" />
-                                                </Path.Data>
-                                            </Path>
-                                        </Canvas>
-                                    </Viewbox>
-                                </TextBox.InnerLeftContent>
-                            </TextBox>
-                            <TextBox Width="240" UseFloatingWatermark="True" Watermark="Watermark">
-                                <TextBox.InnerRightContent>
-                                    <Viewbox Stretch="None">
-                                        <Canvas Width="16" Height="16">
-                                            <Canvas.RenderTransform>
-                                                <TranslateTransform X="0" Y="0" />
-                                            </Canvas.RenderTransform>
-                                            <Canvas.Resources />
-                                            <Path Fill="{DynamicResource UIIconFillBrush}">
-                                                <Path.Data>
-                                                    <PathGeometry
-                                                        Figures="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
-                                                        FillRule="NonZero" />
-                                                </Path.Data>
-                                            </Path>
-                                        </Canvas>
-                                    </Viewbox>
-                                </TextBox.InnerRightContent>
-                            </TextBox>
-                            <TextBox Width="240" UseFloatingWatermark="True" Watermark="Watermark">
-                                <TextBox.InnerLeftContent>
-                                    <Viewbox Stretch="None">
-                                        <Canvas Width="16" Height="16">
-                                            <Canvas.RenderTransform>
-                                                <TranslateTransform X="0" Y="0" />
-                                            </Canvas.RenderTransform>
-                                            <Canvas.Resources />
-                                            <Path Fill="{DynamicResource UIIconFillBrush}">
-                                                <Path.Data>
-                                                    <PathGeometry
-                                                        Figures="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                                                        FillRule="NonZero" />
-                                                </Path.Data>
-                                            </Path>
-                                        </Canvas>
-                                    </Viewbox>
-                                </TextBox.InnerLeftContent>
-                                <TextBox.InnerRightContent>
-                                    <Viewbox Stretch="None">
-                                        <Canvas Width="16" Height="16">
-                                            <Canvas.RenderTransform>
-                                                <TranslateTransform X="0" Y="0" />
-                                            </Canvas.RenderTransform>
-                                            <Canvas.Resources />
-                                            <Path Fill="{DynamicResource UIIconFillBrush}">
-                                                <Path.Data>
-                                                    <PathGeometry
-                                                        Figures="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
-                                                        FillRule="NonZero" />
-                                                </Path.Data>
-                                            </Path>
-                                        </Canvas>
-                                    </Viewbox>
-                                </TextBox.InnerRightContent>
-                            </TextBox>
-                        </StackPanel>
-                    </Expander>
+                            </ScrollViewer.Styles>
+                            <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,90,0,50">
+                                <TextBlock Text="MarbleUI" FontSize="24" FontWeight="Black" />
+                                <TextBlock Text="{Binding Header}"
+                                           TextAlignment="Right"
+                                           FontSize="14" FontFamily="Black" />
 
-                    <Expander Header="RadioButton" Margin="10,0">
-                        <StackPanel Spacing="5">
-                            <RadioButton Content="default" GroupName="d" />
-                            <RadioButton Content="default" GroupName="d" />
-                            <RadioButton Content="isthreestate(true)" IsThreeState="True" GroupName="e" />
-                            <RadioButton Content="isthreestate(true)" IsThreeState="True" GroupName="e" />
-                        </StackPanel>
-                    </Expander>
+                                <Expander Header="CheckBox" Margin="10,0">
+                                    <StackPanel Spacing="5">
+                                        <CheckBox Content="default" />
+                                        <CheckBox Content="isthreestate(true)" IsThreeState="True" />
+                                    </StackPanel>
+                                </Expander>
 
-                    <Expander Header="AudioPlayer Control" Margin="10,0">
-                        <Border>
-                            <Panel>
+                                <Expander Header="TextBox" Margin="10,0">
+                                    <StackPanel Spacing="5">
+                                        <StackPanel.Styles>
+                                            <Style Selector="TextBox">
+                                                <Setter Property="Height" Value="24" />
+                                                <Setter Property="VerticalContentAlignment" Value="Center" />
+                                            </Style>
+                                        </StackPanel.Styles>
+                                        <TextBox Width="240" />
+                                        <TextBox Width="240" UseFloatingWatermark="True" Watermark="Watermark" />
+                                        <TextBox Width="240">
+                                            <TextBox.InnerLeftContent>
+                                                <Viewbox Stretch="None">
+                                                    <Canvas Width="16" Height="16">
+                                                        <Canvas.RenderTransform>
+                                                            <TranslateTransform X="0" Y="0" />
+                                                        </Canvas.RenderTransform>
+                                                        <Canvas.Resources />
+                                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                                            <Path.Data>
+                                                                <PathGeometry
+                                                                    Figures="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                                                                    FillRule="NonZero" />
+                                                            </Path.Data>
+                                                        </Path>
+                                                    </Canvas>
+                                                </Viewbox>
+                                            </TextBox.InnerLeftContent>
+                                        </TextBox>
+                                        <TextBox Width="240">
+                                            <TextBox.InnerRightContent>
+                                                <Viewbox Stretch="None">
+                                                    <Canvas Width="16" Height="16">
+                                                        <Canvas.RenderTransform>
+                                                            <TranslateTransform X="0" Y="0" />
+                                                        </Canvas.RenderTransform>
+                                                        <Canvas.Resources />
+                                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                                            <Path.Data>
+                                                                <PathGeometry
+                                                                    Figures="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
+                                                                    FillRule="NonZero" />
+                                                            </Path.Data>
+                                                        </Path>
+                                                    </Canvas>
+                                                </Viewbox>
+                                            </TextBox.InnerRightContent>
+                                        </TextBox>
+                                        <TextBox Width="240">
+                                            <TextBox.InnerLeftContent>
+                                                <Viewbox Stretch="None">
+                                                    <Canvas Width="16" Height="16">
+                                                        <Canvas.RenderTransform>
+                                                            <TranslateTransform X="0" Y="0" />
+                                                        </Canvas.RenderTransform>
+                                                        <Canvas.Resources />
+                                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                                            <Path.Data>
+                                                                <PathGeometry
+                                                                    Figures="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                                                                    FillRule="NonZero" />
+                                                            </Path.Data>
+                                                        </Path>
+                                                    </Canvas>
+                                                </Viewbox>
+                                            </TextBox.InnerLeftContent>
+                                            <TextBox.InnerRightContent>
+                                                <Viewbox Stretch="None">
+                                                    <Canvas Width="16" Height="16">
+                                                        <Canvas.RenderTransform>
+                                                            <TranslateTransform X="0" Y="0" />
+                                                        </Canvas.RenderTransform>
+                                                        <Canvas.Resources />
+                                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                                            <Path.Data>
+                                                                <PathGeometry
+                                                                    Figures="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
+                                                                    FillRule="NonZero" />
+                                                            </Path.Data>
+                                                        </Path>
+                                                    </Canvas>
+                                                </Viewbox>
+                                            </TextBox.InnerRightContent>
+                                        </TextBox>
+                                        <TextBox Width="240" UseFloatingWatermark="True" Watermark="Watermark">
+                                            <TextBox.InnerLeftContent>
+                                                <Viewbox Stretch="None">
+                                                    <Canvas Width="16" Height="16">
+                                                        <Canvas.RenderTransform>
+                                                            <TranslateTransform X="0" Y="0" />
+                                                        </Canvas.RenderTransform>
+                                                        <Canvas.Resources />
+                                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                                            <Path.Data>
+                                                                <PathGeometry
+                                                                    Figures="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                                                                    FillRule="NonZero" />
+                                                            </Path.Data>
+                                                        </Path>
+                                                    </Canvas>
+                                                </Viewbox>
+                                            </TextBox.InnerLeftContent>
+                                        </TextBox>
+                                        <TextBox Width="240" UseFloatingWatermark="True" Watermark="Watermark">
+                                            <TextBox.InnerRightContent>
+                                                <Viewbox Stretch="None">
+                                                    <Canvas Width="16" Height="16">
+                                                        <Canvas.RenderTransform>
+                                                            <TranslateTransform X="0" Y="0" />
+                                                        </Canvas.RenderTransform>
+                                                        <Canvas.Resources />
+                                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                                            <Path.Data>
+                                                                <PathGeometry
+                                                                    Figures="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
+                                                                    FillRule="NonZero" />
+                                                            </Path.Data>
+                                                        </Path>
+                                                    </Canvas>
+                                                </Viewbox>
+                                            </TextBox.InnerRightContent>
+                                        </TextBox>
+                                        <TextBox Width="240" UseFloatingWatermark="True" Watermark="Watermark">
+                                            <TextBox.InnerLeftContent>
+                                                <Viewbox Stretch="None">
+                                                    <Canvas Width="16" Height="16">
+                                                        <Canvas.RenderTransform>
+                                                            <TranslateTransform X="0" Y="0" />
+                                                        </Canvas.RenderTransform>
+                                                        <Canvas.Resources />
+                                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                                            <Path.Data>
+                                                                <PathGeometry
+                                                                    Figures="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                                                                    FillRule="NonZero" />
+                                                            </Path.Data>
+                                                        </Path>
+                                                    </Canvas>
+                                                </Viewbox>
+                                            </TextBox.InnerLeftContent>
+                                            <TextBox.InnerRightContent>
+                                                <Viewbox Stretch="None">
+                                                    <Canvas Width="16" Height="16">
+                                                        <Canvas.RenderTransform>
+                                                            <TranslateTransform X="0" Y="0" />
+                                                        </Canvas.RenderTransform>
+                                                        <Canvas.Resources />
+                                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                                            <Path.Data>
+                                                                <PathGeometry
+                                                                    Figures="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
+                                                                    FillRule="NonZero" />
+                                                            </Path.Data>
+                                                        </Path>
+                                                    </Canvas>
+                                                </Viewbox>
+                                            </TextBox.InnerRightContent>
+                                        </TextBox>
+                                    </StackPanel>
+                                </Expander>
 
-                                <controls:APControl Width="250" MediaLength="1" MediaCurrentPosition="0.4"
-                                                    VolumeMaximum="100"
-                                                    Volume="0.2"
-                                                    Padding="18"
-                                                    Background="#55222222"
-                                                    IsSupportsRewinding="True" />
-                            </Panel>
-                        </Border>
-                    </Expander>
-                </StackPanel>
-            </ScrollViewer>
-            <controls:ActionSheet ActionSheetService="{Binding ActionSheetService}"
-                                  Content="Action Sheet is shown"
-                                  Background="{DynamicResource DefaultControlBrush}"/>
-        </Grid>
-        </controls:UISplitView>
+                                <Expander Header="RadioButton" Margin="10,0">
+                                    <StackPanel Spacing="5">
+                                        <RadioButton Content="default" GroupName="d" />
+                                        <RadioButton Content="default" GroupName="d" />
+                                        <RadioButton Content="isthreestate(true)" IsThreeState="True" GroupName="e" />
+                                        <RadioButton Content="isthreestate(true)" IsThreeState="True" GroupName="e" />
+                                    </StackPanel>
+                                </Expander>
+
+                                <Expander Header="AudioPlayer Control" Margin="10,0">
+                                    <Border>
+                                        <Panel>
+
+                                            <controls:APControl Width="250" MediaLength="1" MediaCurrentPosition="0.4"
+                                                                VolumeMaximum="100"
+                                                                Volume="0.2"
+                                                                Padding="18"
+                                                                Background="#55222222"
+                                                                IsSupportsRewinding="True" />
+                                        </Panel>
+                                    </Border>
+                                </Expander>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </DataTemplate>
+            </controls:TabView.ContentTemplate>
+        </controls:TabView>
+    </controls:UISplitView>
 </controls:UIWindow>

@@ -1,6 +1,6 @@
 namespace MarbleUI.Controls
 {
-    public enum SplitPaneAlignment
+    public enum Alignment
     {
         Left,
         Right,

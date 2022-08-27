@@ -39,27 +39,22 @@ namespace MarbleUI.Controls
 
             _window = this.GetLogicalParent<Window>();
 
-            _window.PlatformImpl.WindowStateChanged += WindowStateChanged;
+            if (_window != null)
+            {
             
-            PART_ToolBarPresenter = e.NameScope.Find<ContentPresenter>(nameof(PART_ToolBarPresenter));
+                PART_ToolBarPresenter = e.NameScope.Find<ContentPresenter>(nameof(PART_ToolBarPresenter));
             
-            _window.PlatformImpl.WindowStateChanged.Invoke( _window.PlatformImpl.WindowState);
+                _window.PlatformImpl.WindowStateChanged.Invoke( _window.PlatformImpl.WindowState);
+            }
         }
 
         #endregion
 
         #region Abstract Methods
 
-        protected abstract void SetToolBarMargin(WindowState obj);
-
         #endregion
 
         #region Public Events Handlers
-        
-        public void WindowStateChanged(WindowState obj)
-        {
-            SetToolBarMargin(obj);
-        }
 
         #endregion
     }

@@ -50,34 +50,34 @@
 
         <!-- Button -->
         <Styles>
-            <Style Selector="local|UIToolBarItem Button">
+            <Style Selector="local|UIToolBarItem > Button /template/ ContentControl">
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="CornerRadius" Value="8" />
                 <Setter Property="Height" Value="{Binding $parent[local:UIToolBar], Converter={local:ToolBarItemContentHeightConverter}}"/>
                 <Setter Property="MinWidth" Value="30"/>
             </Style>
 
-            <Style Selector="local|UIToolBarItem Button:pointerover">
+            <Style Selector="local|UIToolBarItem > Button:pointerover /template/ ContentControl">
                 <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
 
-            <Style Selector="local|UIToolBarItem Button:pressed">
+            <Style Selector="local|UIToolBarItem > Button:pressed /template/ ContentControl">
                 <Setter Property="RenderTransform" Value="scale(1)" />
                 <Setter Property="Background" Value="{DynamicResource ToolBarItemControlPressedBrush}" />
             </Style>
 
-            <Style Selector="local|UIToolBarItem Button:focus">
+            <Style Selector="local|UIToolBarItem > Button:focus /template/ ContentControl">
                 <Setter Property="BorderThickness" Value="4" />
-                <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
             </Style>
 
-            <Style Selector="local|UIWindow[IsActive=False] local|UIToolBarItem Button /template/ ContentControl">
+            <Style Selector="local|UIWindow[IsActive=False] local|UIToolBarItem > Button /template/ ContentControl">
                 <Setter Property="BorderThickness" Value="1" />
                 <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}" />
             </Style>
 
-            <Style Selector="local|UIToolBarItem Button:disabled">
+            <Style Selector="local|UIToolBarItem > Button:disabled">
                 <Setter Property="Opacity" Value="0.8" />
             </Style>
         </Styles>
@@ -91,23 +91,23 @@
                 <Setter Property="MinWidth" Value="30"/>
             </Style>
 
-            <Style Selector="local|UIToolBarItem ToggleButton:pointerover">
+            <Style Selector="local|UIToolBarItem ToggleButton:pointerover /template/ ContentControl">
                 <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
 
-            <Style Selector="local|UIToolBarItem ToggleButton:pressed">
+            <Style Selector="local|UIToolBarItem ToggleButton:pressed /template/ ContentControl">
                 <Setter Property="RenderTransform" Value="scale(1)" />
                 <Setter Property="Background" Value="{DynamicResource ToolBarItemControlPressedBrush}" />
             </Style>
 
-            <Style Selector="local|UIToolBarItem ToggleButton:checked">
+            <Style Selector="local|UIToolBarItem ToggleButton:checked /template/ ContentControl">
                 <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
             </Style>
 
-            <Style Selector="local|UIToolBarItem ToggleButton:focus">
+            <Style Selector="local|UIToolBarItem ToggleButton:focus /template/ ContentControl">
                 <Setter Property="BorderThickness" Value="4" />
-                <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
             </Style>
 
             <Style Selector="local|UIWindow[IsActive=False] local|UIToolBarItem ToggleButton /template/ ContentControl">
@@ -147,7 +147,7 @@
             <Style Selector="local|UIToolBarItem TextBox:focus /template/ Border#PART_BorderElement">
                 <Setter Property="BorderThickness" Value="4" />
                 <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
             </Style>
             
             <Style Selector="local|UIWindow[IsActive=False] local|UIToolBarItem TextBox">

@@ -18,7 +18,8 @@
                             IsHitTestVisible="False"/>
                     <DockPanel 
                                LastChildFill="True">
-                        <Grid DockPanel.Dock="Top">
+                        <Grid DockPanel.Dock="Top"
+                              IsVisible="{Binding #PART_ToolBarPresenter.Content.IsToolBarVisible}">
                             <ContentPresenter Content="{TemplateBinding ToolBar}"
                                               x:Name="PART_ToolBarPresenter"
                             />
@@ -33,6 +34,14 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
+    </Style>
+    
+    <Style Selector=":is(Window) local|UIView /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="60,0,0,0"/>
+    </Style>
+    
+    <Style Selector=":is(Window)[WindowState=FullScreen] local|UIView /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
     
     <Style Selector=":is(Window)[IsActive=False] local|UIView">

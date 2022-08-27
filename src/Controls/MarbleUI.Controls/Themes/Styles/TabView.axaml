@@ -1,0 +1,182 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- TabView Styles -->
+    <Style Selector="local|TabView[ItemStripAlignment=Top]">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:TabView">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"/>
+                    <DockPanel 
+                               LastChildFill="True">
+                        <Grid DockPanel.Dock="Top"
+                              IsVisible="{Binding #PART_ToolBarPresenter.Content.ToolBarIsVisible}">
+                            <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                              x:Name="PART_ToolBarPresenter"
+                            />
+                        </Grid>
+                        <DockPanel LastChildFill="True">
+                            <Grid Height="25"
+                                  IsVisible="{TemplateBinding TabStripIsVisible}"
+                                  Background="{DynamicResource DefaultSplitterBrush}"
+                                  DockPanel.Dock="Top">
+                                <ListBox Margin="0,0,0,1"
+                                                       
+                                                       Items="{TemplateBinding Items}"
+                                                       SelectedItem="{TemplateBinding Content, Mode=TwoWay}"
+                                                       ItemTemplate="{TemplateBinding ItemHeaderTemplate}">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <UniformGrid Rows="1"/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                            </Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="0"/>
+                        </DockPanel>
+                    </DockPanel>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|TabView[ItemStripAlignment=Bottom]">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:TabView">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"/>
+                    <DockPanel 
+                               LastChildFill="True">
+                        <Grid DockPanel.Dock="Top"
+                              IsVisible="{Binding #PART_ToolBarPresenter.Content.ToolBarIsVisible}">
+                            <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                              x:Name="PART_ToolBarPresenter"
+                            />
+                        </Grid>
+                        <DockPanel LastChildFill="True">
+                            <Grid Height="25"
+                                  IsVisible="{TemplateBinding TabStripIsVisible}"
+                                  Background="{DynamicResource DefaultSplitterBrush}"
+                                  DockPanel.Dock="Bottom">
+                                <SelectingItemsControl Margin="1,0,0,0"
+                                                       
+                                                       Items="{TemplateBinding Items}"
+                                                       SelectedItem="{TemplateBinding Content, Mode=TwoWay}"
+                                                       ItemTemplate="{TemplateBinding ItemHeaderTemplate}">
+                                    <SelectingItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <UniformGrid Rows="1"/>
+                                        </ItemsPanelTemplate>
+                                    </SelectingItemsControl.ItemsPanel>
+                                </SelectingItemsControl>
+                            </Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="0"/>
+                        </DockPanel>
+                    </DockPanel>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|TabView[ItemStripAlignment=Left]">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:TabView">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"/>
+                    <DockPanel 
+                               LastChildFill="True">
+                        <Grid DockPanel.Dock="Top"
+                              IsVisible="{Binding #PART_ToolBarPresenter.Content.ToolBarIsVisible}">
+                            <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                              x:Name="PART_ToolBarPresenter"
+                            />
+                        </Grid>
+                        <DockPanel LastChildFill="True">
+                            <Grid Height="207"
+                                  IsVisible="{TemplateBinding TabStripIsVisible}"
+                                  Background="{DynamicResource DefaultSplitterBrush}"
+                                  DockPanel.Dock="Left">
+                                <SelectingItemsControl Margin="0,0,1,0"
+                                                       
+                                                       Items="{TemplateBinding Items}"
+                                                       SelectedItem="{TemplateBinding Content, Mode=TwoWay}"
+                                                       ItemTemplate="{TemplateBinding ItemHeaderTemplate}"/>
+                            </Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="0"/>
+                        </DockPanel>
+                    </DockPanel>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|TabView[ItemStripAlignment=Right]">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:TabView">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"/>
+                    <DockPanel 
+                               LastChildFill="True">
+                        <Grid DockPanel.Dock="Top"
+                              IsVisible="{Binding #PART_ToolBarPresenter.Content.ToolBarIsVisible}">
+                            <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                              x:Name="PART_ToolBarPresenter"
+                            />
+                        </Grid>
+                        <DockPanel LastChildFill="True">
+                            <Grid Height="207"
+                                  IsVisible="{TemplateBinding TabStripIsVisible}"
+                                  Background="{DynamicResource DefaultSplitterBrush}"
+                                  DockPanel.Dock="Right">
+                                <SelectingItemsControl Margin="1,0,0,0"
+                                                       
+                                                       Items="{TemplateBinding Items}"
+                                                       SelectedItem="{TemplateBinding Content, Mode=TwoWay}"
+                                                       ItemTemplate="{TemplateBinding ItemHeaderTemplate}"/>
+                            </Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="0"/>
+                        </DockPanel>
+                    </DockPanel>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector=":is(Window) local|TabView /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="60,0,0,0"/>
+    </Style>
+    
+    <Style Selector=":is(Window)[WindowState=FullScreen] local|TabView /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+    
+    <Style Selector=":is(Window)[IsActive=False] local|TabView">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
+    </Style>
+</Styles>

@@ -10,6 +10,7 @@
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/Window.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UICaptionButtons.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/APControl.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/TabView.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UIToolBarItem.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UIToolBar.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UIView.axaml"/>

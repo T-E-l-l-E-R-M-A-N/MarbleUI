@@ -36,30 +36,12 @@
             </ControlTemplate>
         </Setter>
     </Style>
-    
-    
-    
-    <Style Selector="Expander[ExpandDirection=Down] /template/ ToggleButton">
-        <Setter Property="DockPanel.Dock" Value="Top"/>
-    </Style>
-    
-    <Style Selector="Expander[ExpandDirection=Up] /template/ ToggleButton">
-        <Setter Property="DockPanel.Dock" Value="Bottom"/>
-    </Style>
-    
-    <Style Selector="Expander[ExpandDirection=Left] /template/ ToggleButton">
-        <Setter Property="DockPanel.Dock" Value="Right"/>
-    </Style>
-    
-    <Style Selector="Expander[ExpandDirection=Right] /template/ ToggleButton">
-        <Setter Property="DockPanel.Dock" Value="Left"/>
-    </Style>
-    
+
+
     <Style Selector="Expander /template/ ToggleButton">
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
-                <Border Background="Transparent"
-                        Height="25">
+                <Border Height="25">
                     <DockPanel LastChildFill="True"
                                Margin="0,0">
                         <TextBlock x:Name="PART_ExpandText"
@@ -80,7 +62,22 @@
             </ControlTemplate>
         </Setter>
     </Style>
-    
+    <Style Selector="Expander[ExpandDirection=Down] /template/ ToggleButton">
+        <Setter Property="DockPanel.Dock" Value="Top"/>
+    </Style>
+
+    <Style Selector="Expander[ExpandDirection=Up] /template/ ToggleButton">
+        <Setter Property="DockPanel.Dock" Value="Bottom"/>
+    </Style>
+
+    <Style Selector="Expander[ExpandDirection=Left] /template/ ToggleButton">
+        <Setter Property="DockPanel.Dock" Value="Right"/>
+    </Style>
+
+    <Style Selector="Expander[ExpandDirection=Right] /template/ ToggleButton">
+        <Setter Property="DockPanel.Dock" Value="Left"/>
+    </Style>
+
     <Style Selector="Expander[IsExpanded=False] /template/ ToggleButton /template/ TextBlock#PART_ExpandText">
         <Setter Property="Text" Value="Show"/>
     </Style>

@@ -32,7 +32,8 @@
                                 IsHitTestVisible="False"/>
                         <DockPanel Grid.Column="2"
                                    LastChildFill="True">
-                            <Grid DockPanel.Dock="Top">
+                            <Grid DockPanel.Dock="Top"
+                                  IsVisible="{Binding #PART_ToolBarPresenter.Content.IsToolBarVisible}">
                                 <ContentPresenter Content="{TemplateBinding ToolBar}"
                                                   x:Name="PART_ToolBarPresenter"
                                 />
@@ -49,6 +50,20 @@
             </ControlTemplate>
         </Setter>
     </Style>
+    
+    
+    <Style Selector="local|UIWindow[WindowState=FullScreen] local|UISplitView[PaneAlignment=Left] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+    
+    <Style Selector="local|UIWindow[WindowState=Normal] local|UISplitView[PaneAlignment=Left][SplitPaneIsVisible=False] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="60,0,0,0"/>
+    </Style>
+    
+    <Style Selector="local|UIWindow[WindowState=Maximized] local|UISplitView[PaneAlignment=Left][SplitPaneIsVisible=False] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="60,0,0,0"/>
+    </Style>
+    
     
     <Style Selector="local|UISplitView[PaneAlignment=Left] /template/ Grid#PART_SplitPaneContentGrid">
         <Setter Property="Transitions">
@@ -86,7 +101,8 @@
                                 IsHitTestVisible="False"/>
                         <DockPanel Grid.Column="2" 
                                    LastChildFill="True">
-                            <Grid DockPanel.Dock="Top">
+                            <Grid DockPanel.Dock="Top"
+                                  IsVisible="{Binding #PART_ToolBarPresenter.Content.IsToolBarVisible}">
                                 <ContentPresenter Content="{TemplateBinding ToolBar}"
                                                   x:Name="PART_ToolBarPresenter"
                                 />
@@ -102,6 +118,14 @@
                 </DockPanel>
             </ControlTemplate>
         </Setter>
+    </Style>
+    
+    <Style Selector="local|UIWindow local|UISplitView[PaneAlignment=Right] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="60,0,0,0"/>
+    </Style>
+    
+    <Style Selector="local|UIWindow[WindowState=FullScreen] local|UISplitView[PaneAlignment=Right] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
     
     <Style Selector="local|UISplitView[PaneAlignment=Right] /template/ Grid#PART_SplitPaneContentGrid">
@@ -125,7 +149,8 @@
             <ControlTemplate TargetType="local:UISplitView">
                 <DockPanel Grid.Column="2" Background="{TemplateBinding Background}"
                            LastChildFill="True">
-                    <Grid DockPanel.Dock="Top">
+                    <Grid DockPanel.Dock="Top"
+                          IsVisible="{Binding #PART_ToolBarPresenter.Content.IsToolBarVisible}">
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 IsHitTestVisible="False"/>
@@ -162,6 +187,14 @@
         </Setter>
     </Style>
     
+    <Style Selector="local|UIWindow local|UISplitView[PaneAlignment=Top] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="60,0,0,0"/>
+    </Style>
+    
+    <Style Selector="local|UIWindow[WindowState=FullScreen] local|UISplitView[PaneAlignment=Top] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+    
     <Style Selector="local|UISplitView[PaneAlignment=Top] /template/ Grid#PART_SplitPaneContentGrid">
         <Setter Property="Transitions">
             <Transitions>
@@ -183,7 +216,8 @@
             <ControlTemplate TargetType="local:UISplitView">
                 <DockPanel Grid.Column="2" Background="{TemplateBinding Background}"
                            LastChildFill="True">
-                    <Grid DockPanel.Dock="Top">
+                    <Grid DockPanel.Dock="Top"
+                          IsVisible="{Binding #PART_ToolBarPresenter.Content.IsToolBarVisible}">
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 IsHitTestVisible="False"/>
@@ -217,6 +251,14 @@
                 </DockPanel>
             </ControlTemplate>
         </Setter>
+    </Style>
+    
+    <Style Selector="local|UIWindow local|UISplitView[PaneAlignment=Bottom] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="60,0,0,0"/>
+    </Style>
+    
+    <Style Selector="local|UIWindow[WindowState=FullScreen] local|UISplitView[PaneAlignment=Bottom] /template/ ContentPresenter#PART_ToolBarPresenter">
+        <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
     
     <Style Selector="local|UISplitView[PaneAlignment=Bottom] /template/ Grid#PART_SplitPaneContentGrid">

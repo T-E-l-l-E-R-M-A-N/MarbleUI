@@ -12,19 +12,6 @@ namespace MarbleUI.Controls
         
         #region Protected Methods
 
-        protected override void SetToolBarMargin(WindowState obj)
-        {
-            if(_window.Content is UIView && obj is WindowState.FullScreen)
-            {
-                PART_ToolBarPresenter.Margin = Thickness.Parse("0,0,0,0");
-            }
-            else
-            {
-                PART_ToolBarPresenter.Margin = Thickness.Parse("70,0,0,0");
-            }
-        }
-
-
         #endregion
     }
 }

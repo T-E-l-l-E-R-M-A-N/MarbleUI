@@ -20,8 +20,8 @@ namespace MarbleUI.Controls
         public static readonly StyledProperty<bool> SplitPaneIsVisibleProperty =
             AvaloniaProperty.Register<SplitViewBase, bool>("SplitPaneIsVisible");
 
-        public static readonly StyledProperty<SplitPaneAlignment> PaneAlignmentProperty =
-            AvaloniaProperty.Register<SplitViewBase, SplitPaneAlignment>("PaneAlignment");
+        public static readonly StyledProperty<Alignment> PaneAlignmentProperty =
+            AvaloniaProperty.Register<SplitViewBase, Alignment>("PaneAlignment");
 
         #endregion
         
@@ -43,10 +43,13 @@ namespace MarbleUI.Controls
         public bool SplitPaneIsVisible
         {
             get => GetValue(SplitPaneIsVisibleProperty);
-            set => SetValue(SplitPaneIsVisibleProperty, value);
+            set
+            {
+                SetValue(SplitPaneIsVisibleProperty, value);
+            }
         }
 
-        public SplitPaneAlignment PaneAlignment
+        public Alignment PaneAlignment
         {
             get => GetValue(PaneAlignmentProperty);
             set => SetValue(PaneAlignmentProperty, value);
@@ -54,36 +57,6 @@ namespace MarbleUI.Controls
         #endregion
         
         #region Protected Methods
-        
-        protected override void SetToolBarMargin(WindowState obj)
-        {
-            switch (_window.Content)
-            {
-                case ISplitView when obj is WindowState.Maximized or WindowState.Normal:
-                {
-                    if (PaneAlignment == SplitPaneAlignment.Left)
-                    {
-                        PART_ToolBarPresenter.Margin = Thickness.Parse(SplitPaneIsVisible ? "0,0,0,0" : "70,0,0,0");
-                    }
-                    else
-                    {
-                        PART_ToolBarPresenter.Margin = Thickness.Parse("70,0,0,0");
-                    }
-
-                    break;
-                }
-                case ISplitView:
-                {
-                    
-                    if(obj is WindowState.FullScreen)
-                    {
-                        PART_ToolBarPresenter.Margin = Thickness.Parse("0,0,0,0");
-                        
-                    }
-                    break;
-                }
-            }
-        }
 
         #endregion
     }

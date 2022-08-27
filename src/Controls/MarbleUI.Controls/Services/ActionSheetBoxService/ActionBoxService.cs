@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
 using Avalonia.Layout;
+using Avalonia.Threading;
 using MarbleUI.Controls.Services;
 
 namespace MarbleUI.Controls.Services
@@ -10,17 +12,21 @@ namespace MarbleUI.Controls.Services
             ActionSheetBoxButtons buttons,
             ActionSheetBoxDefaultButtonKey defaultButton)
         {
-            var dlg = new ActionBox();
-            dlg.ActionSheetBoxButtons = buttons;
-            dlg.ActionSheetBoxDefaultButtonKey = defaultButton;
-            dlg.Content = message;
-            dlg.VerticalContentAlignment = VerticalAlignment.Stretch;
-            dlg.HorizontalContentAlignment = HorizontalAlignment.Center;
-            dlg.Title = caption;
-            dlg.ShowInTaskbar = false;
-            dlg.Width = 450;
-            dlg.Height = 210;
+            var dlg = new ActionBox
+            {
+                ActionSheetBoxButtons = buttons,
+                ActionSheetBoxDefaultButtonKey = defaultButton,
+                Content = message,
+                VerticalContentAlignment = VerticalAlignment.Stretch,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+                Title = caption,
+                ShowInTaskbar = false,
+                Width = 450,
+                Height = 210
+            };
+
             dlg.Show();
+            
             return dlg.WasClosed ? dlg.ActionSheetBoxResult : ActionSheetResult.ResultNone;
         }
     }
