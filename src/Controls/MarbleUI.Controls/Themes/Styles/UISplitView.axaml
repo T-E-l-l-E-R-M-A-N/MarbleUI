@@ -29,7 +29,8 @@
                     <Grid>
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                IsHitTestVisible="False"/>
+                                IsHitTestVisible="False"
+                                x:Name="PART_BackgroundPlaceholder"/>
                         <DockPanel Grid.Column="2"
                                    LastChildFill="True">
                             <Grid DockPanel.Dock="Top"
@@ -52,6 +53,7 @@
     </Style>
     
     
+    
     <Style Selector="local|UIWindow[WindowState=FullScreen] local|UISplitView[PaneAlignment=Left] /template/ ContentPresenter#PART_ToolBarPresenter">
         <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
@@ -62,6 +64,18 @@
     
     <Style Selector="local|UIWindow[WindowState=Maximized] local|UISplitView[PaneAlignment=Left][SplitPaneIsVisible=False] /template/ ContentPresenter#PART_ToolBarPresenter">
         <Setter Property="Margin" Value="60,0,0,0"/>
+    </Style>
+    
+    <Style Selector=":is(Window) local|UISplitView[PaneAlignment=Left][SplitPaneIsVisible=False] /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="5,5,5,5"/>
+    </Style>
+    
+    <Style Selector=":is(Window) local|UISplitView[PaneAlignment=Left][SplitPaneIsVisible=True] /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="0,5,5,0"/>
+    </Style>
+    
+    <Style Selector=":is(Window)[WindowState=FullScreen] local|UISplitView /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="0,0,0,0"/>
     </Style>
     
     
@@ -98,7 +112,8 @@
                     <Grid>
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                IsHitTestVisible="False"/>
+                                IsHitTestVisible="False"
+                                x:Name="PART_BackgroundPlaceholder"/>
                         <DockPanel Grid.Column="2" 
                                    LastChildFill="True">
                             <Grid DockPanel.Dock="Top"
@@ -128,6 +143,18 @@
         <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
     
+    <Style Selector=":is(Window) local|UISplitView[PaneAlignment=Right][SplitPaneIsVisible=False] /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="5,5,5,5"/>
+    </Style>
+    
+    <Style Selector=":is(Window) local|UISplitView[PaneAlignment=Right][SplitPaneIsVisible=True] /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="5,0,0,5"/>
+    </Style>
+    
+    <Style Selector=":is(Window)[WindowState=FullScreen] local|UISplitView /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="0,0,0,0"/>
+    </Style>
+    
     <Style Selector="local|UISplitView[PaneAlignment=Right] /template/ Grid#PART_SplitPaneContentGrid">
         <Setter Property="Transitions">
             <Transitions>
@@ -147,13 +174,14 @@
     <Style Selector="local|UISplitView[PaneAlignment=Top]">
         <Setter Property="Template">
             <ControlTemplate TargetType="local:UISplitView">
-                <DockPanel Grid.Column="2" Background="{TemplateBinding Background}"
+                <DockPanel Grid.Column="2" 
                            LastChildFill="True">
                     <Grid DockPanel.Dock="Top"
                           IsVisible="{Binding #PART_ToolBarPresenter.Content.IsToolBarVisible}">
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                IsHitTestVisible="False"/>
+                                IsHitTestVisible="False"
+                                x:Name="PART_BackgroundPlaceholder"/>
                         <ContentPresenter Content="{TemplateBinding ToolBar}"
                                           x:Name="PART_ToolBarPresenter"
                         />
@@ -195,6 +223,18 @@
         <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
     
+    <Style Selector=":is(Window) local|UISplitView[PaneAlignment=Top][SplitPaneIsVisible=False] /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="5,5,5,5"/>
+    </Style>
+    
+    <Style Selector=":is(Window) local|UISplitView[PaneAlignment=Top][SplitPaneIsVisible=True] /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="5,5,5,5"/>
+    </Style>
+    
+    <Style Selector=":is(Window)[WindowState=FullScreen] local|UISplitView /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="0,0,0,0"/>
+    </Style>
+    
     <Style Selector="local|UISplitView[PaneAlignment=Top] /template/ Grid#PART_SplitPaneContentGrid">
         <Setter Property="Transitions">
             <Transitions>
@@ -214,13 +254,14 @@
     <Style Selector="local|UISplitView[PaneAlignment=Bottom]">
         <Setter Property="Template">
             <ControlTemplate TargetType="local:UISplitView">
-                <DockPanel Grid.Column="2" Background="{TemplateBinding Background}"
+                <DockPanel Grid.Column="2"
                            LastChildFill="True">
                     <Grid DockPanel.Dock="Top"
                           IsVisible="{Binding #PART_ToolBarPresenter.Content.IsToolBarVisible}">
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                IsHitTestVisible="False"/>
+                                IsHitTestVisible="False"
+                                x:Name="PART_BackgroundPlaceholder"/>
                         <ContentPresenter Content="{TemplateBinding ToolBar}"
                                           x:Name="PART_ToolBarPresenter"
                         />
@@ -261,6 +302,18 @@
         <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
     
+    <Style Selector=":is(Window) local|UISplitView[PaneAlignment=Bottom][SplitPaneIsVisible=False] /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="5,5,5,5"/>
+    </Style>
+    
+    <Style Selector=":is(Window) local|UISplitView[PaneAlignment=Bottom][SplitPaneIsVisible=True] /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="5,5,5,5"/>
+    </Style>
+    
+    <Style Selector=":is(Window)[WindowState=FullScreen] local|UISplitView /template/ Border#PART_BackgroundPlaceholder">
+        <Setter Property="CornerRadius" Value="0,0,0,0"/>
+    </Style>
+    
     <Style Selector="local|UISplitView[PaneAlignment=Bottom] /template/ Grid#PART_SplitPaneContentGrid">
         <Setter Property="Transitions">
             <Transitions>
@@ -276,6 +329,8 @@
     <Style Selector="local|UISplitView[PaneAlignment=Bottom][SplitPaneIsVisible=False] /template/ Grid#PART_SplitPaneContentGrid">
         <Setter Property="Height" Value="0"/>
     </Style>
+    
+   
     
     <Style Selector=":is(Window)[IsActive=False] local|UISplitView">
         <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>

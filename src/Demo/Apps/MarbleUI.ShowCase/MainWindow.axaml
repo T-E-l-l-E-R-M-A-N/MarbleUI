@@ -5,12 +5,14 @@
                    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
                    x:Class="MarbleUI.ShowCase.MainUiWindow"
                    xmlns:controls="clr-namespace:MarbleUI.Controls;assembly=MarbleUI.Controls"
+                   xmlns:showCase="clr-namespace:MarbleUI.ShowCase"
                    Title="MarbleUI.ShowCase"
                    FontFamily="SF NS Display"
                    Foreground="{DynamicResource DefaultForegroundBrush}">
-    <controls:UISplitView PaneAlignment="Left"
+    <controls:UISplitView PaneAlignment="Top"
                           SplitPaneLength="207"
                           x:Name="UiSplitView">
+        
         <controls:UISplitView.ToolBar>
             <controls:UIToolBar IsToolBarVisible="True" Height="53" ToolBarMode="OnlyIcon">
                 <Grid ColumnDefinitions="Auto * Auto">
@@ -64,25 +66,6 @@
                     </StackPanel>
                     <StackPanel Grid.Column="2"
                     Orientation="Horizontal">
-                        <controls:UIToolBarItem Margin="2.5,0" Label="Tab Strip">
-                            <ToggleButton IsChecked="{Binding #TabView.TabStripIsVisible, Mode=TwoWay}">
-                                <Viewbox Stretch="None">
-                                    <Canvas Width="16" Height="16">
-                                        <Canvas.RenderTransform>
-                                            <TranslateTransform X="0" Y="0" />
-                                        </Canvas.RenderTransform>
-                                        <Canvas.Resources />
-                                        <Path Fill="{DynamicResource UIIconFillBrush}">
-                                            <Path.Data>
-                                                <PathGeometry
-                                                    Figures="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
-                                                    FillRule="NonZero" />
-                                            </Path.Data>
-                                        </Path>
-                                    </Canvas>
-                                </Viewbox>
-                            </ToggleButton>
-                        </controls:UIToolBarItem>
                         <controls:UIToolBarItem Margin="2.5,0" Label="New Tab">
                             <Button Command="{Binding CreateTabsCommand}">
                                 <Viewbox Stretch="None">
@@ -107,21 +90,48 @@
             </controls:UIToolBar>
         </controls:UISplitView.ToolBar>
         <controls:TabView ItemStripAlignment="Top"
+                          TabStripIsVisible="{Binding TabStripIsVisibleKey, Mode=TwoWay}"
                           x:Name="TabView"
-                          Content="{Binding SelectedTabViewModel, Mode=TwoWay}"
+                          SelectedItem="{Binding SelectedTabViewModel, Mode=TwoWay}"
                           Items="{Binding SimpleTabViewModelsCollection}">
-            <controls:TabView.ItemHeaderTemplate>
+            <controls:TabView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock VerticalAlignment="Center"
-                               TextAlignment="Center"
-                               FontSize="12"
-                               Text="{Binding }" />
+                    <Grid ColumnDefinitions="Auto *"
+                          Height="24">
+                        <Button Classes="tabViewItemCloseButton"
+                                Height="24"
+                                Command="{Binding CloseCommand}"
+                                CommandParameter="{Binding}"
+                                Width="{Binding $self.Bounds.Height}">
+                            <Viewbox Stretch="None">
+                                <Canvas Width="16" Height="16">
+                                    <Canvas.RenderTransform>
+                                        <TranslateTransform X="0" Y="0" />
+                                    </Canvas.RenderTransform>
+                                    <Canvas.Resources />
+                                    <Path Fill="{DynamicResource UIIconFillBrush}">
+                                        <Path.Data>
+                                            <PathGeometry
+                                                Figures="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                                                />
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                            </Viewbox>
+                        </Button>
+                        <TextBlock Text="{Binding Header}"
+                                   FontSize="12"
+                                   Grid.ColumnSpan="2"
+                                   TextAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Margin="25,0"/>
+                    </Grid>
                 </DataTemplate>
-            </controls:TabView.ItemHeaderTemplate>
+            </controls:TabView.ItemTemplate>
             <controls:TabView.ContentTemplate>
                 <DataTemplate>
-                    <Grid Background="Teal">
-                        <ScrollViewer Background="{DynamicResource DefaultControlBrush}">
+                    <Grid >
+                        <ScrollViewer>
                             <ScrollViewer.Styles>
                                 <Style Selector="Expander">
                                     <Setter Property="IsExpanded" Value="True" />

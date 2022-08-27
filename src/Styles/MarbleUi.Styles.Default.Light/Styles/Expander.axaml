@@ -52,6 +52,7 @@
                                    FontWeight="Bold"
                                    Foreground="{DynamicResource DefaultForegroundBrush}"/>
                         <ContentControl Content="{TemplateBinding Content}"
+                                        Background="Transparent"
                                         VerticalAlignment="Center"
                                         HorizontalContentAlignment="Left"
                                         TextBlock.FontSize="11"

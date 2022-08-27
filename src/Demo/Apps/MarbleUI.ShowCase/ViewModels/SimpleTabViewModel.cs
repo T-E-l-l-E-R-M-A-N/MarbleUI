@@ -1,16 +1,30 @@
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace MarbleUI.ShowCase
 {
     public class SimpleTabViewModel : BindableBase
     {
-        public string Header { get; set; }
-        public object? Content { get; set; }
+        private string _header;
 
-        public SimpleTabViewModel(string header, object? content)
+        public string Header
+        {
+            get => _header;
+            set
+            {
+                _header = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public object? Content { get; set; }
+        public DelegateCommand<SimpleTabViewModel> CloseCommand { get; set; }
+
+        public SimpleTabViewModel(string header, object? content, DelegateCommand<SimpleTabViewModel> closeCommand)
         {
             Header = header;
             Content = content;
+            CloseCommand = closeCommand;
         }
     }
 }

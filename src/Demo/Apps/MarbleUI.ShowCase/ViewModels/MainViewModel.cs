@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using MarbleUI.Controls.Services;
 using Prism.Commands;
@@ -21,6 +22,8 @@ namespace MarbleUI.ShowCase
 
         public SimpleTabViewModel? SelectedTabViewModel { get; set; }
 
+        public bool TabStripIsVisibleKey { get; set; }
+
         #endregion
 
         #region Constructor
@@ -29,9 +32,26 @@ namespace MarbleUI.ShowCase
         {
             ActionSheetService = actionSheetService;
             
+            SimpleTabViewModelsCollection.CollectionChanged += SimpleTabViewModelsCollectionOnCollectionChanged;
+            
             ShowActionSheetCommand = new DelegateCommand(OnShowSheet, OnCanShowSheet);
             ShowActionBoxCommand = new DelegateCommand(OnShowBox);
             CreateTabsCommand = new DelegateCommand(OnCreateTabs, OnCanCreateTabs);
+
+            CreateTabsCommand.Execute();
+        }
+
+        private void SimpleTabViewModelsCollectionOnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+        {
+            if(SimpleTabViewModelsCollection.Count >= 2)
+            {
+                TabStripIsVisibleKey = true;
+            }
+            else
+            {
+                TabStripIsVisibleKey = false;
+                
+            }
         }
 
         #endregion
@@ -62,9 +82,17 @@ namespace MarbleUI.ShowCase
 
         private void OnCreateTabs()
         {
-            SimpleTabViewModelsCollection.Add(new SimpleTabViewModel($"TabItem number {_indexTab}", _dlgResult));
+            SimpleTabViewModelsCollection.Add(new SimpleTabViewModel($"TabItem number {_indexTab}", _dlgResult, new DelegateCommand<SimpleTabViewModel>(OnClosingTab, OnCanCloseTab)));
             SelectedTabViewModel = SimpleTabViewModelsCollection.LastOrDefault();
             _indexTab += 1;
+        }
+
+        private bool OnCanCloseTab(SimpleTabViewModel arg) => SimpleTabViewModelsCollection.Count >= 1;
+
+        private void OnClosingTab(SimpleTabViewModel obj)
+        {
+            SimpleTabViewModelsCollection.Remove(obj);
+            SelectedTabViewModel = SimpleTabViewModelsCollection.LastOrDefault();
         }
 
         #endregion

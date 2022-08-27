@@ -29,19 +29,16 @@
                                   IsVisible="{TemplateBinding TabStripIsVisible}"
                                   Background="{DynamicResource DefaultSplitterBrush}"
                                   DockPanel.Dock="Top">
-                                <ListBox Margin="0,0,0,1"
-                                                       
-                                                       Items="{TemplateBinding Items}"
-                                                       SelectedItem="{TemplateBinding Content, Mode=TwoWay}"
-                                                       ItemTemplate="{TemplateBinding ItemHeaderTemplate}">
-                                    <ListBox.ItemsPanel>
+                                <ItemsPresenter Margin="0,0,0,1"
+                                         Items="{TemplateBinding Items}">
+                                    <ItemsPresenter.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <UniformGrid Rows="1"/>
                                         </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-                                </ListBox>
+                                    </ItemsPresenter.ItemsPanel>
+                                </ItemsPresenter>
                             </Grid>
-                            <ContentPresenter Content="{TemplateBinding Content}"
+                            <ContentPresenter Content="{TemplateBinding SelectedItem}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Margin="0"/>
                         </DockPanel>
@@ -72,19 +69,16 @@
                                   IsVisible="{TemplateBinding TabStripIsVisible}"
                                   Background="{DynamicResource DefaultSplitterBrush}"
                                   DockPanel.Dock="Bottom">
-                                <SelectingItemsControl Margin="1,0,0,0"
-                                                       
-                                                       Items="{TemplateBinding Items}"
-                                                       SelectedItem="{TemplateBinding Content, Mode=TwoWay}"
-                                                       ItemTemplate="{TemplateBinding ItemHeaderTemplate}">
-                                    <SelectingItemsControl.ItemsPanel>
+                                <ItemsPresenter Margin="0,1,0,0"
+                                                Items="{TemplateBinding Items}">
+                                    <ItemsPresenter.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <UniformGrid Rows="1"/>
                                         </ItemsPanelTemplate>
-                                    </SelectingItemsControl.ItemsPanel>
-                                </SelectingItemsControl>
+                                    </ItemsPresenter.ItemsPanel>
+                                </ItemsPresenter>
                             </Grid>
-                            <ContentPresenter Content="{TemplateBinding Content}"
+                            <ContentPresenter Content="{TemplateBinding SelectedItem}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Margin="0"/>
                         </DockPanel>
@@ -111,17 +105,15 @@
                             />
                         </Grid>
                         <DockPanel LastChildFill="True">
-                            <Grid Height="207"
+                            <Grid Width="207"
                                   IsVisible="{TemplateBinding TabStripIsVisible}"
                                   Background="{DynamicResource DefaultSplitterBrush}"
                                   DockPanel.Dock="Left">
-                                <SelectingItemsControl Margin="0,0,1,0"
-                                                       
-                                                       Items="{TemplateBinding Items}"
-                                                       SelectedItem="{TemplateBinding Content, Mode=TwoWay}"
-                                                       ItemTemplate="{TemplateBinding ItemHeaderTemplate}"/>
+                                <ItemsPresenter Margin="0,0,1,0"
+                                                Items="{TemplateBinding Items}">
+                                </ItemsPresenter>
                             </Grid>
-                            <ContentPresenter Content="{TemplateBinding Content}"
+                            <ContentPresenter Content="{TemplateBinding SelectedItem}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Margin="0"/>
                         </DockPanel>
@@ -148,17 +140,15 @@
                             />
                         </Grid>
                         <DockPanel LastChildFill="True">
-                            <Grid Height="207"
+                            <Grid Width="207"
                                   IsVisible="{TemplateBinding TabStripIsVisible}"
                                   Background="{DynamicResource DefaultSplitterBrush}"
                                   DockPanel.Dock="Right">
-                                <SelectingItemsControl Margin="1,0,0,0"
-                                                       
-                                                       Items="{TemplateBinding Items}"
-                                                       SelectedItem="{TemplateBinding Content, Mode=TwoWay}"
-                                                       ItemTemplate="{TemplateBinding ItemHeaderTemplate}"/>
+                                <ItemsPresenter Margin="1,0,0,0"
+                                                Items="{TemplateBinding Items}">
+                                </ItemsPresenter>
                             </Grid>
-                            <ContentPresenter Content="{TemplateBinding Content}"
+                            <ContentPresenter Content="{TemplateBinding SelectedItem}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Margin="0"/>
                         </DockPanel>
@@ -179,4 +169,61 @@
     <Style Selector=":is(Window)[IsActive=False] local|TabView">
         <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
     </Style>
+    
+    <!-- Default TabItem Style -->
+    <Styles>
+        <Style Selector="local|TabView > ListBoxItem">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="ListBoxItem">
+                    <ContentControl ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                   BorderBrush="{DynamicResource DefaultSplitterBrush}"
+                                      BorderThickness="0.5,0"
+                                      />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    
+        <Style Selector="local|TabView > ListBoxItem /template/ ContentControl">
+            <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
+        </Style>
+        
+        <Style Selector="local|TabView > ListBoxItem:pointerover /template/ ContentControl">
+            <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}"/>
+        </Style>
+    
+        <Style Selector="local|TabView > ListBoxItem:pressed /template/ ContentControl">
+            <Setter Property="Background" Value="{DynamicResource DefaultSplitterBrush}"/>
+        </Style>
+    
+        <Style Selector="local|TabView > ListBoxItem:selected /template/ ContentControl">
+            <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        </Style>
+    
+        <Style Selector=":is(Window)[IsActive=False] local|TabView > ListBoxItem:selected /template/ ContentControl">
+            <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
+        </Style>
+    </Styles>
+    
+    <!-- Default Item DataTemplate -->
+    <Styles>
+        
+        <Style Selector="Button.tabViewItemCloseButton /template/ ContentControl">
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Opacity" Value="0"/>
+        </Style>
+        
+        <Style Selector="Button.tabViewItemCloseButton:pointerover /template/ ContentControl">
+            <Setter Property="Opacity" Value="1"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        
+        <Style Selector="Button.tabViewItemCloseButton:pressed /template/ ContentControl">
+            <Setter Property="Background" Value="{DynamicResource ToolBarItemControlPressedBrush}"/>
+        </Style>
+    </Styles>
 </Styles>
