@@ -33,6 +33,8 @@
                     <ContentControl Content="{TemplateBinding Content}"
                                     VerticalAlignment="Center"
                                     Margin="5,0,0,0"
+                                    HorizontalContentAlignment="Left"
+                                    VerticalContentAlignment="Center"
                                     ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </StackPanel>
             </ControlTemplate>

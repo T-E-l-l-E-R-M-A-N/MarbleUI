@@ -1,0 +1,41 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- UIView Styles -->
+    <Style Selector="local|UIView">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:UIView">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"/>
+                    <DockPanel 
+                               LastChildFill="True">
+                        <Grid DockPanel.Dock="Top">
+                            <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                              x:Name="PART_ToolBarPresenter"
+                            />
+                            <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                       Height="1"
+                                       VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Margin="0"/>
+                    </DockPanel>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector=":is(Window)[IsActive=False] local|UIView">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
+    </Style>
+</Styles>

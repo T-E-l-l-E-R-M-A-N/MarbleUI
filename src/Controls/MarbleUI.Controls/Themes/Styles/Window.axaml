@@ -7,16 +7,26 @@
         </Border>
     </Design.PreviewWith>
 
-    <!-- Add Styles Here -->
+    <!-- UIWindow Styles -->
     <Style Selector="local|UIWindow">
-        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource DefaultWindowActiveBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="5"/>
         <Setter Property="Template">
             <ControlTemplate TargetType="local:UIWindow">
                 <Grid>
-                    <ContentControl Background="{TemplateBinding Background}"
+                    <Border Background="{TemplateBinding Background}"
+                            IsHitTestVisible="False"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        
+                    </Border>
+                    <Border VerticalAlignment="Top"
+                            Height="53"
+                            Background="Transparent"
+                            x:Name="PART_BorderTitleBar">
+                    </Border>
+                    <ContentControl 
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderBrush}"
                                     CornerRadius="{TemplateBinding CornerRadius}"
@@ -24,29 +34,14 @@
                                     ContentTemplate="{TemplateBinding ContentTemplate}">
                     
                     </ContentControl>
-                    <Border VerticalAlignment="Top"
-                            Height="53"
-                            Background="Transparent"
-                            x:Name="PART_BorderTitleBar">
-                    </Border>
+                    
                     <Border VerticalAlignment="Top"
                             Height="53"
                             >
-                        <Panel>
-                            <!--<ExperimentalAcrylicBorder IsHitTestVisible="False"
-                                                       CornerRadius="8,8,0,0">
-                                <ExperimentalAcrylicBorder.Material>
-                                    <ExperimentalAcrylicMaterial BackgroundSource="Digger"
-                                                                 TintColor="#FFFFFF"
-                                                                 TintOpacity="0.5"
-                                                                 FallbackColor="#f3f3f3"
-                                                                  MaterialOpacity="0.5"
-                                                                  
-                                                                 PlatformTransparencyCompensationLevel="0.5"/>
-                                </ExperimentalAcrylicBorder.Material>
-                            </ExperimentalAcrylicBorder>-->
+                        <Panel HorizontalAlignment="Left">
                             <local:UICaptionButtons Margin="10,0,10,0"
-                                                    VerticalAlignment="Center"/>
+                                                    VerticalAlignment="Center"
+                                                    />
                         </Panel>
                     </Border>
                 </Grid>
@@ -54,7 +49,7 @@
         </Setter>
     </Style>
     
-    <Style Selector="local|UIWindow[IsActive=False]">
+    <Style Selector=":is(Window)[IsActive=False]">
         <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
     </Style>
     

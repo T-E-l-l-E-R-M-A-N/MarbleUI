@@ -19,6 +19,8 @@
                                 BorderThickness="{TemplateBinding BorderBrush}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 Content="{TemplateBinding Content}"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
                                 ContentTemplate="{TemplateBinding ContentTemplate}">
                     
                 </ContentControl>
@@ -27,16 +29,15 @@
     </Style>
     
     <Style Selector="Button:pointerover">
-        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
     </Style>
     
-    <Style Selector="Button:pressed">
+    <Style Selector="Button:pressed /template/ ContentControl">
         <Setter Property="RenderTransform" Value="scale(1)"/>
         <Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultControlBrush}"/>
     </Style>
     
-    <Style Selector="Button:focus">
+    <Style Selector="Button:focus /template/ ContentControl">
         <Setter Property="BorderThickness" Value="4"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}"/>
     </Style>

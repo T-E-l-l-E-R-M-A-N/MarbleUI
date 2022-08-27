@@ -1,0 +1,64 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!--  ActionSheet Styles -->
+
+    <Style Selector="local|ActionSheet">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Rectangle Fill="#333333" Opacity="0.125"
+                               IsVisible="{Binding $parent[local:ActionSheet].ActionSheetService.SheetShow}" />
+                    <Border Margin="90,10,90,0"
+                            VerticalAlignment="Top"
+                            CornerRadius="8,8,8,8"
+                            BorderBrush="{DynamicResource DefaultControlBorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            IsVisible="{Binding $parent[local:ActionSheet].ActionSheetService.SheetShow}">
+                        <DockPanel LastChildFill="True">
+                            <Border Height="40" DockPanel.Dock="Bottom">
+                                <DockPanel LastChildFill="True"
+                                           VerticalAlignment="Center"
+                                           Margin="10,0">
+                                    <StackPanel Orientation="Horizontal"
+                                                DockPanel.Dock="Right"
+                                                Spacing="8">
+                                        <Button x:Name="PART_RefusetButton"
+                                                Width="70"
+                                                Height="24"
+                                                Content="Cancel"
+                                                Command="{Binding $parent[local:ActionSheet].ActionSheetService.RefuseCommand}"
+                                                CommandParameter="{Binding $parent[local:ActionSheet].ActionSheetService.RefuseParameter}" />
+                                        <Button x:Name="PART_AcceptButton"
+                                                Width="70"
+                                                Height="24"
+                                                Content="OK"
+                                                IsDefault="True"
+                                                Command="{Binding $parent[local:ActionSheet].ActionSheetService.AcceptCommand}"
+                                                CommandParameter="{Binding $parent[local:ActionSheet].ActionSheetService.AcceptParameter}" />
+                                    </StackPanel>
+                                    <Rectangle />
+                                </DockPanel>
+
+                            </Border>
+                            <Border>
+                                <ContentControl Margin="10,10,10,0"
+                                                BorderThickness="1"
+                                                Background="{DynamicResource DefaultControlBrush}"
+                                                BorderBrush="{DynamicResource DefaultControlBorderBrush}"
+                                                Content="{TemplateBinding Content}"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            </Border>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

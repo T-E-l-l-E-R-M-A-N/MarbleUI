@@ -12,6 +12,7 @@
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/ButtonBrushes.axaml"/>
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/GenericBrushes.axaml"/>
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/UIIconBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/ToolBarBrushes.axaml"/>
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/CaptionButtonsBrushes.axaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

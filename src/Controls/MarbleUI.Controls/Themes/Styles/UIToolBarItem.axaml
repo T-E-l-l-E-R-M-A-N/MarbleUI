@@ -1,0 +1,163 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add UIToolBarItem Styles Here -->
+    <Style Selector="local|UIToolBar[ToolBarMode=OnlyIcon] local|UIToolBarItem">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:UIToolBar">
+                <ContentPresenter Content="{TemplateBinding Content}"
+                                  Height="30"
+                                  HorizontalContentAlignment="Center"
+                                  VerticalContentAlignment="Center"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"/>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="local|UIToolBar[ToolBarMode=OnlyLabel] local|UIToolBarItem">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:UIToolBar">
+                <TextBlock Text="{TemplateBinding Label}"
+                           TextAlignment="Center" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="local|UIToolBar[ToolBarMode=BothTextAndLabel] local|UIToolBarItem">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:UIToolBar">
+                <DockPanel LastChildFill="True">
+                    <TextBlock Text="{TemplateBinding Label}"
+                               TextAlignment="Center"
+                               DockPanel.Dock="Bottom"
+                               Margin="0,4,0,0" />
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      Height="24"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      VerticalContentAlignment="Center" 
+                                      HorizontalContentAlignment="Center"/>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- UIToolBarItem Controls Styles -->
+    <Styles>
+
+        <!-- Button -->
+        <Styles>
+            <Style Selector="local|UIToolBarItem Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Height" Value="{Binding $parent[local:UIToolBar], Converter={local:ToolBarItemContentHeightConverter}}"/>
+                <Setter Property="MinWidth" Value="30"/>
+            </Style>
+
+            <Style Selector="local|UIToolBarItem Button:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem Button:pressed">
+                <Setter Property="RenderTransform" Value="scale(1)" />
+                <Setter Property="Background" Value="{DynamicResource ToolBarItemControlPressedBrush}" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem Button:focus">
+                <Setter Property="BorderThickness" Value="4" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}" />
+            </Style>
+
+            <Style Selector="local|UIWindow[IsActive=False] local|UIToolBarItem Button /template/ ContentControl">
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem Button:disabled">
+                <Setter Property="Opacity" Value="0.8" />
+            </Style>
+        </Styles>
+
+        <!-- ToggleButton -->
+        <Styles>
+            <Style Selector="local|UIToolBarItem ToggleButton">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Height" Value="{Binding $parent[local:UIToolBar], Converter={local:ToolBarItemContentHeightConverter}}"/>
+                <Setter Property="MinWidth" Value="30"/>
+            </Style>
+
+            <Style Selector="local|UIToolBarItem ToggleButton:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem ToggleButton:pressed">
+                <Setter Property="RenderTransform" Value="scale(1)" />
+                <Setter Property="Background" Value="{DynamicResource ToolBarItemControlPressedBrush}" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem ToggleButton:checked">
+                <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem ToggleButton:focus">
+                <Setter Property="BorderThickness" Value="4" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}" />
+            </Style>
+
+            <Style Selector="local|UIWindow[IsActive=False] local|UIToolBarItem ToggleButton /template/ ContentControl">
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}" />
+            </Style>
+            
+            <Style Selector="local|UIWindow[IsActive=False] local|UIToolBarItem ToggleButton:checked /template/ ContentControl">
+                <Setter Property="RenderTransform" Value="scale(1)" />
+                <Setter Property="Background" Value="{DynamicResource ToolBarItemControlPressedBrush}" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem ToggleButton:disabled">
+                <Setter Property="Opacity" Value="0.8" />
+            </Style>
+        </Styles>
+
+        <!-- TextBox -->
+        <Styles>
+            <Style Selector="TextBox">
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Height" Value="{Binding $parent[local:UIToolBar], Converter={local:ToolBarItemContentHeightConverter}}"/>
+
+            </Style>
+            
+            <Style Selector="local|UIToolBarItem TextBox:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem TextBox:pressed">
+                <Setter Property="RenderTransform" Value="scale(1)" />
+                <Setter Property="Background" Value="{DynamicResource ToolBarItemControlPressedBrush}" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem TextBox:focus /template/ Border#PART_BorderElement">
+                <Setter Property="BorderThickness" Value="4" />
+                <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}" />
+            </Style>
+            
+            <Style Selector="local|UIWindow[IsActive=False] local|UIToolBarItem TextBox">
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}" />
+            </Style>
+
+            <Style Selector="local|UIToolBarItem TextBox:disabled">
+                <Setter Property="Opacity" Value="0.8" />
+            </Style>
+        </Styles>
+    </Styles>
+</Styles>

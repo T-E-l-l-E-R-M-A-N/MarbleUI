@@ -1,0 +1,241 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- UISplitView Styles -->
+    
+    <Style Selector="local|UISplitView">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Left]">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:UISplitView">
+                <DockPanel LastChildFill="True">
+                    <Grid DockPanel.Dock="Left"
+                          x:Name="PART_SplitPaneContentGrid"
+                          Width="{TemplateBinding SplitPaneLength}">
+                        <ContentPresenter/>
+                        <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                   Width="1"
+                                   HorizontalAlignment="Right"
+                                   IsVisible="{TemplateBinding SplitPaneIsVisible}"/>
+                    </Grid>
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsHitTestVisible="False"/>
+                        <DockPanel Grid.Column="2"
+                                   LastChildFill="True">
+                            <Grid DockPanel.Dock="Top">
+                                <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                                  x:Name="PART_ToolBarPresenter"
+                                />
+                                <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                           Height="1"
+                                           VerticalAlignment="Bottom"/>
+                            </Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="0"/>
+                        </DockPanel>
+                    </Grid>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Left] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Width" Duration="0:0:0.4"/>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Left][SplitPaneIsVisible=True] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Width" Value="{Binding $parent[local:UISplitView].SplitPaneLength}"/>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Left][SplitPaneIsVisible=False] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Width" Value="0"/>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Right]">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:UISplitView">
+                <DockPanel LastChildFill="True">
+                    <Grid DockPanel.Dock="Right"
+                          Width="{TemplateBinding SplitPaneLength}"
+                          x:Name="PART_SplitPaneContentGrid">
+                        <ContentPresenter/>
+                        <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                   Width="1"
+                                   HorizontalAlignment="Left"
+                                   IsVisible="{TemplateBinding SplitPaneIsVisible}"/>
+                    </Grid>
+                    
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsHitTestVisible="False"/>
+                        <DockPanel Grid.Column="2" 
+                                   LastChildFill="True">
+                            <Grid DockPanel.Dock="Top">
+                                <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                                  x:Name="PART_ToolBarPresenter"
+                                />
+                                <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                           Height="1"
+                                           VerticalAlignment="Bottom"/>
+                            </Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="0"/>
+                        </DockPanel>
+                    </Grid>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Right] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Width" Duration="0:0:0.4"/>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Right][SplitPaneIsVisible=True] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Width" Value="{Binding $parent[local:UISplitView].SplitPaneLength}"/>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Right][SplitPaneIsVisible=False] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Width" Value="0"/>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Top]">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:UISplitView">
+                <DockPanel Grid.Column="2" Background="{TemplateBinding Background}"
+                           LastChildFill="True">
+                    <Grid DockPanel.Dock="Top">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsHitTestVisible="False"/>
+                        <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                          x:Name="PART_ToolBarPresenter"
+                        />
+                        <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                   Height="1"
+                                   VerticalAlignment="Bottom"/>
+                    </Grid>
+                    <DockPanel LastChildFill="True">
+                        <Grid DockPanel.Dock="Top"
+                              x:Name="PART_SplitPaneContentGrid"
+                              Height="{TemplateBinding SplitPaneLength}">
+                            <ContentPresenter/>
+                            <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                       Height="1"
+                                       VerticalAlignment="Bottom"
+                                       IsVisible="{TemplateBinding SplitPaneIsVisible}"/>
+                        </Grid>
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                    CornerRadius="{TemplateBinding CornerRadius}"
+                                    IsHitTestVisible="False"/>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="0"/>
+                        </Grid>
+                    </DockPanel>
+                    
+                </DockPanel>
+               
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Top] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Height" Duration="0:0:0.4"/>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Top][SplitPaneIsVisible=True] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Height" Value="{Binding $parent[local:UISplitView].SplitPaneLength}"/>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Top][SplitPaneIsVisible=False] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Height" Value="0"/>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Bottom]">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:UISplitView">
+                <DockPanel Grid.Column="2" Background="{TemplateBinding Background}"
+                           LastChildFill="True">
+                    <Grid DockPanel.Dock="Top">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsHitTestVisible="False"/>
+                        <ContentPresenter Content="{TemplateBinding ToolBar}"
+                                          x:Name="PART_ToolBarPresenter"
+                        />
+                        <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                   Height="1"
+                                   VerticalAlignment="Bottom"/>
+                    </Grid>
+                    <DockPanel LastChildFill="True">
+                        <Grid DockPanel.Dock="Bottom"
+                              x:Name="PART_SplitPaneContentGrid"
+                              Height="{TemplateBinding SplitPaneLength}">
+                            <ContentPresenter/>
+                            <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                       Height="1"
+                                       VerticalAlignment="Top"
+                                       IsVisible="{TemplateBinding SplitPaneIsVisible}"/>
+                        </Grid>
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                    CornerRadius="{TemplateBinding CornerRadius}"
+                                    IsHitTestVisible="False"/>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="0"/>
+                        </Grid>
+                    </DockPanel>
+                    
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Bottom] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Height" Duration="0:0:0.4"/>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Bottom][SplitPaneIsVisible=True] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Height" Value="{Binding $parent[local:UISplitView].SplitPaneLength}"/>
+    </Style>
+    
+    <Style Selector="local|UISplitView[PaneAlignment=Bottom][SplitPaneIsVisible=False] /template/ Grid#PART_SplitPaneContentGrid">
+        <Setter Property="Height" Value="0"/>
+    </Style>
+    
+    <Style Selector=":is(Window)[IsActive=False] local|UISplitView">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
+    </Style>
+</Styles>

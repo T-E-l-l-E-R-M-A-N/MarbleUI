@@ -1,3 +1,4 @@
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.VisualTree;
@@ -20,6 +21,7 @@ namespace MarbleUI.Controls
         private Button PART_MinimiseButton;
         private Button PART_FullScrButton;
         private WindowState _winState;
+        public Border _titleBarPlaceHolder;
 
         #endregion
 
@@ -55,17 +57,15 @@ namespace MarbleUI.Controls
         private void PART_FullScrButtonOnClick(object? sender, RoutedEventArgs e)
         {
             //_window.PlatformImpl.WindowStateChanged += WindowStateChanged;
-            //_window.PlatformImpl.SetExtendClientAreaChromeHints(ExtendClientAreaChromeHints.SystemChrome);
+            
             if (_window.WindowState is WindowState.Maximized or WindowState.Normal)
             {
+                _window.PlatformImpl.SetExtendClientAreaChromeHints(ExtendClientAreaChromeHints.SystemChrome);
                 _winState = _window.WindowState;
                 _window.WindowState = WindowState.FullScreen;
                 _window.PlatformImpl.WindowStateChanged += WindowStateChanged;
                 PART_MinimiseButton.IsEnabled = false;
-                PART_MinimiseButton.Opacity = 0;
-                PointerEnter += OnPointerEnter;
-                PointerLeave += OnPointerLeave;
-                Opacity = 0;
+                IsVisible = false;
             }
             else if(_window.WindowState is WindowState.FullScreen)
             {
@@ -97,10 +97,7 @@ namespace MarbleUI.Controls
         {
             if (obj is WindowState.Maximized or WindowState.Normal)
             {
-                Opacity = 1;
-                PART_MinimiseButton.Opacity = 1;
-                PointerEnter -= OnPointerEnter;
-                PointerLeave -= OnPointerLeave;
+                IsVisible = true;
                 _window.PlatformImpl.SetExtendClientAreaChromeHints(ExtendClientAreaChromeHints.NoChrome);
                 _window.PlatformImpl.WindowStateChanged -= WindowStateChanged;
             }

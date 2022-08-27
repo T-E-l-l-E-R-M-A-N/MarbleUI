@@ -19,6 +19,8 @@
                                 BorderThickness="{TemplateBinding BorderBrush}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 Content="{TemplateBinding Content}"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
                                 ContentTemplate="{TemplateBinding ContentTemplate}">
                     
                 </ContentControl>
@@ -26,21 +28,21 @@
         </Setter>
     </Style>
     
-    <Style Selector="ToggleButton:pointerover">
+    <Style Selector="ToggleButton:pointerover /template/ ContentControl">
         <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
     </Style>
     
-    <Style Selector="ToggleButton:pressed">
+    <Style Selector="ToggleButton:pressed /template/ ContentControl">
         <Setter Property="RenderTransform" Value="scale(1)"/>
         <Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
     </Style>
     
-    <Style Selector="ToggleButton:checked">
+    <Style Selector="ToggleButton:checked /template/ ContentControl">
         <Setter Property="Background" Value="{DynamicResource DefaultControlBorderBrush}"/>
     </Style>
     
-    <Style Selector="ToggleButton:focus">
+    <Style Selector="ToggleButton:focus /template/ ContentControl">
         <Setter Property="BorderThickness" Value="4"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}"/>
     </Style>

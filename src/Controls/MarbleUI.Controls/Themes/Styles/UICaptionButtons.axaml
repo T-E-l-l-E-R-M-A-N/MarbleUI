@@ -7,7 +7,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <!-- Add Styles Here -->
+    <!-- UICaptionButtons Styles -->
     <Style Selector="controls|UICaptionButtons">
         <Setter Property="Template">
             <ControlTemplate TargetType="controls:UICaptionButtons">
@@ -34,6 +34,18 @@
         <Setter Property="Height" Value="12"/>
         <Setter Property="CornerRadius" Value="6"/>
         <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
     
     <Style Selector="controls|UICaptionButtons /template/ Button#PART_CloseButton">

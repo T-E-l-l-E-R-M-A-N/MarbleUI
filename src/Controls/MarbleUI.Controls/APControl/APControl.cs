@@ -1,6 +1,6 @@
 namespace MarbleUI.Controls
 {
-    public class APControl : TemplatedControl, IStyleable
+    public class APControl : ContentControl, IStyleable
     {
         #region IStyleable
 
@@ -16,7 +16,26 @@ namespace MarbleUI.Controls
         public static readonly StyledProperty<bool> IsSupportsRewindingProperty =
             AvaloniaProperty.Register<APControl, bool>("IsSupportsRewinding");
         
-        //public static 
+        public static readonly StyledProperty<double> MediaCurrentPositionProperty =
+            AvaloniaProperty.Register<APControl, double>("MediaCurrentPosition");
+        
+        public static readonly StyledProperty<double> MediaLengthProperty =
+            AvaloniaProperty.Register<APControl, double>("MediaLength");
+        
+        public static readonly StyledProperty<double> VolumeMaximumProperty =
+            AvaloniaProperty.Register<APControl, double>("VolumeMaximum");
+        
+        public static readonly StyledProperty<double> VolumeProperty =
+            AvaloniaProperty.Register<APControl, double>("Volume");
+        
+        public static readonly StyledProperty<object> PrevBtnCommandProperty =
+            AvaloniaProperty.Register<APControl, object>("PrevBtnCommand");
+        
+        public static readonly StyledProperty<object> NextBtnCommandProperty =
+            AvaloniaProperty.Register<APControl, object>("NextBtnCommand");
+        
+        public static readonly StyledProperty<object> PlayBtnCommandProperty =
+            AvaloniaProperty.Register<APControl, object>("PlayBtnCommand");
 
         #endregion
 
@@ -28,6 +47,48 @@ namespace MarbleUI.Controls
             set => SetValue(IsSupportsRewindingProperty, value);
         }
 
+        public double MediaLength
+        {
+            get => GetValue(MediaLengthProperty);
+            set => SetValue(MediaLengthProperty, value);
+        }
+
+        public double MediaCurrentPosition
+        {
+            get => GetValue(MediaCurrentPositionProperty);
+            set => SetValue(MediaCurrentPositionProperty, value);
+        }
+
+        public double VolumeMaximum
+        {
+            get => GetValue(VolumeMaximumProperty);
+            set => SetValue(VolumeMaximumProperty, value);
+        }
+
+        public double Volume
+        {
+            get => GetValue(VolumeProperty);
+            set => SetValue(VolumeProperty, value);
+        }
+
+        public object PrevBtnCommand
+        {
+            get => GetValue(PrevBtnCommandProperty);
+            set => SetValue(PrevBtnCommandProperty, value);
+        }
+
+        public object NextBtnCommand
+        {
+            get => GetValue(NextBtnCommandProperty);
+            set => SetValue(NextBtnCommandProperty, value);
+        }
+
+        public object PlayBtnCommand
+        {
+            get => GetValue(PlayBtnCommandProperty);
+            set => SetValue(PlayBtnCommandProperty, value);
+        }
+        
         #endregion
     }
 }

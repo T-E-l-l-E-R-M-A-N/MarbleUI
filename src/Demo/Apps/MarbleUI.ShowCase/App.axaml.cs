@@ -1,9 +1,11 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using PropertyChanged;
 
 namespace MarbleUI.ShowCase
 {
+    [DoNotNotify]
     public partial class App : Application
     {
         public override void Initialize()
@@ -15,7 +17,10 @@ namespace MarbleUI.ShowCase
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainUiWindow();
+                var vm = new MainViewModel(new ActionSheetServiceImpl());
+                var win = new MainUiWindow();
+                win.DataContext = vm;
+                desktop.MainWindow = win;
             }
 
             base.OnFrameworkInitializationCompleted();

@@ -6,7 +6,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <!-- Add Styles Here -->
+    <!-- TextBox Default Style -->
     <Style Selector="TextBox">
         <Setter Property="CornerRadius" Value="5"/>
         <Setter Property="BorderThickness" Value="0"/>

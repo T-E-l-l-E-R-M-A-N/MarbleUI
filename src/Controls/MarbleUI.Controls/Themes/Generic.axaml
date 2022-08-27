@@ -7,6 +7,13 @@
     </Design.PreviewWith>
 
     <!-- Add Styles Here -->
-    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Window.axaml"/>
-    <StyleInclude Source="avares://MarbleUI.Controls/Themes/UICaptionButtons.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/Window.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UICaptionButtons.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/APControl.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UIToolBarItem.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UIToolBar.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UIView.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UISplitView.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/ActionBox.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/ActionSheet.axaml"/>
 </Styles>

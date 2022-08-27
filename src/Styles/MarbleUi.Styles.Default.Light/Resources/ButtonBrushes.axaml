@@ -7,4 +7,11 @@
         <GradientStop Color="#1071DF" Offset="0"/>
         <GradientStop Color="#0D5DB7" Offset="1"/>
     </LinearGradientBrush>
+    
+    <LinearGradientBrush x:Key="DefaultButtonBrush"
+                             StartPoint="0% 0%"
+                             EndPoint="0% 100%">
+            <GradientStop Color="#1178ED" Offset="0"/>
+            <GradientStop Color="#106ED8" Offset="1"/>
+        </LinearGradientBrush>
 </ResourceDictionary>

@@ -1,7 +1,10 @@
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.LogicalTree;
 using Avalonia.Styling;
+using Avalonia.VisualTree;
 
 namespace MarbleUI.Controls
 {
@@ -16,8 +19,11 @@ namespace MarbleUI.Controls
         #region Private Fields
 
         private Border PART_BorderTitleBar;
+        private UICaptionButtons _captionButtons;
+        private ViewBase _view;
+
         #endregion
-    
+
         #region Protected Methods
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -33,6 +39,11 @@ namespace MarbleUI.Controls
             
             PART_BorderTitleBar.PointerPressed += PART_BorderTitleBarOnPointerPressed;
             PART_BorderTitleBar.DoubleTapped += PART_BorderTitleBarOnDoubleTapped;
+
+            _captionButtons = GetChildrenUICapButtons(this.VisualChildren);
+            _captionButtons._titleBarPlaceHolder = PART_BorderTitleBar;
+
+            _view = GetChildrenView(this.LogicalChildren);
         }
 
         #endregion
@@ -55,6 +66,39 @@ namespace MarbleUI.Controls
             }
         }
 
+        #endregion
+        
+        #region Private Methods
+
+        private UICaptionButtons GetChildrenUICapButtons(IReadOnlyList<IVisual> child)
+        {
+            foreach (var obj in child)
+            {
+                GetChildrenUICapButtons(obj.VisualChildren);
+                if (obj is UICaptionButtons c)
+                {
+                    _captionButtons = c;
+                    return _captionButtons;
+                }
+            }
+
+            return _captionButtons == null ? new UICaptionButtons() : _captionButtons;
+        }
+
+        private ViewBase GetChildrenView(IReadOnlyList<ILogical> child)
+        {
+            foreach (var obj in child)
+            {
+                GetChildrenView(obj.LogicalChildren);
+                if (obj is ViewBase c)
+                {
+                    _view = c;
+                    return _view;
+                }
+            }
+
+            return _view == null ? null : _view;
+        }
         #endregion
     }
 }

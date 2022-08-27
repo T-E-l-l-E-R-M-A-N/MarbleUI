@@ -1,10 +1,12 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- Add Resources Here -->
+    <SolidColorBrush x:Key="DefaultWindowActiveBrush" Color="#44F2F2F2"/>
     <SolidColorBrush x:Key="DefaultControlBrush" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="DefaultControlInactiveBrush" Color="#F2F2F2"/>
     <SolidColorBrush x:Key="DefaultControlBorderBrush" Color="#D4D4D4"/>
     <SolidColorBrush x:Key="DefaultForegroundBrush" Color="#000000"/>
     <SolidColorBrush x:Key="DefaultTextBoxBackgroundBrush" Color="#99D4D4D4"/>
     <SolidColorBrush x:Key="DefaultTextBoxWatermarkBrush" Color="#B2B2B2"/>
+    <SolidColorBrush x:Key="DefaultSplitterBrush" Color="#B2B2B2"/>
 </ResourceDictionary>

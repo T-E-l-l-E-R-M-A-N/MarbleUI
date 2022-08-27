@@ -1,0 +1,312 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!--  ActionBox Styles -->
+    <Style Selector="local|ActionBox[ActionSheetBoxButtons=OKCancel]">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="MinHeight" Value="210"/>
+        <Setter Property="MinWidth" Value="400"/>
+        <Setter Property="CanResize" Value="False"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:ActionBox">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            IsHitTestVisible="False"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                    </Border>
+                    <Border VerticalAlignment="Top"
+                            Height="24"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="Transparent"
+                            x:Name="PART_BorderTitleBar">
+                        <Grid>
+                            <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                       Height="1"
+                                       VerticalAlignment="Bottom"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Text="{TemplateBinding Title}"/>
+
+                        </Grid>
+                    </Border>
+                    <ContentControl Margin="5,30,5,40"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Content="{TemplateBinding Content}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}">
+                    
+                    </ContentControl>
+                    
+                    <Border VerticalAlignment="Top"
+                            Height="24">
+                        <Panel HorizontalAlignment="Left">
+                            <Button Margin="8,0,0,0" x:Name="PART_CloseButton">
+                            </Button>
+                        </Panel>
+                    </Border>
+                    
+                    <Border Height="40" VerticalAlignment="Bottom">
+                        <DockPanel LastChildFill="True"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0"
+                                   Classes="buttonDp">
+                            <StackPanel Orientation="Horizontal"
+                                        DockPanel.Dock="Right"
+                                        Spacing="8">
+                                <Button x:Name="PART_RefuseButton"
+                                        Width="70"
+                                        Height="24"
+                                        FontSize="12"
+                                        Content="Cancel"/>
+                                <Button x:Name="PART_AcceptButton"
+                                        Width="70"
+                                        Height="24"
+                                        FontSize="12"
+                                        Content="OK"/>
+                            </StackPanel>
+                            <Rectangle/>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|ActionBox[ActionSheetBoxButtons=RetryCancel]">
+        <Setter Property="Background" Value="{DynamicResource DefaultWindowActiveBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:ActionBox">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            IsHitTestVisible="False"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        
+                    </Border>
+                    <Border VerticalAlignment="Top"
+                            Height="24"
+                            Background="Transparent"
+                            x:Name="PART_BorderTitleBar">
+                        <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                   Height="1"
+                                   VerticalAlignment="Bottom"/>
+                    </Border>
+                    <ContentControl Margin="0,0,0,40"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}">
+                    
+                    </ContentControl>
+                    
+                    <Border VerticalAlignment="Top"
+                            Height="24">
+                        <Panel HorizontalAlignment="Left">
+                            <Button x:Name="PART_CloseButton">
+                            </Button>
+                        </Panel>
+                    </Border>
+                    
+                    <Border Height="40"  VerticalAlignment="Bottom">
+                        <DockPanel LastChildFill="True"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0">
+                            <StackPanel Orientation="Horizontal"
+                                        DockPanel.Dock="Right"
+                                        Spacing="8">
+                                <Button x:Name="PART_RetryButton"
+                                        Width="70"
+                                        Height="26"
+                                        Content="Retry"/>
+                                <Button x:Name="PART_AcceptButton"
+                                        Width="70"
+                                        Height="26"
+                                        Content="OK"
+                                        IsDefault="True"/>
+                            </StackPanel>
+                            <Rectangle/>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|ActionBox[ActionSheetBoxButtons=OK]">
+        <Setter Property="Background" Value="{DynamicResource DefaultWindowActiveBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:ActionBox">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            IsHitTestVisible="False"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        
+                    </Border>
+                    <Border VerticalAlignment="Top"
+                            Height="24"
+                            Background="Transparent"
+                            x:Name="PART_BorderTitleBar">
+                        <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                   Height="1"
+                                   VerticalAlignment="Bottom"/>
+                    </Border>
+                    <ContentControl Margin="0,0,0,40"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}">
+                    
+                    </ContentControl>
+                    
+                    <Border VerticalAlignment="Top"
+                            Height="24">
+                        <Panel HorizontalAlignment="Left">
+                            <Button x:Name="PART_CloseButton">
+                            </Button>
+                        </Panel>
+                    </Border>
+                    
+                    <Border Height="40" VerticalAlignment="Bottom">
+                        <DockPanel LastChildFill="True"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0">
+                            <StackPanel Orientation="Horizontal"
+                                        DockPanel.Dock="Right"
+                                        Spacing="8">
+                                <Button x:Name="PART_AcceptButton"
+                                        Width="70"
+                                        Height="26"
+                                        Content="OK"
+                                        IsDefault="True"/>
+                            </StackPanel>
+                            <Rectangle/>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|ActionBox[ActionSheetBoxButtons=AbortRetryIgnore]">
+        <Setter Property="Background" Value="{DynamicResource DefaultWindowActiveBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:ActionBox">
+                <Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            IsHitTestVisible="False"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        
+                    </Border>
+                    <Border VerticalAlignment="Top"
+                            Height="24"
+                            Background="Transparent"
+                            x:Name="PART_BorderTitleBar">
+                        <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
+                                   Height="1"
+                                   VerticalAlignment="Bottom"/>
+                    </Border>
+                    <ContentControl Margin="0,0,0,40"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}">
+                    
+                    </ContentControl>
+                    
+                    <Border VerticalAlignment="Top"
+                            Height="24">
+                        <Panel HorizontalAlignment="Left">
+                            <Button x:Name="PART_CloseButton">
+                            </Button>
+                        </Panel>
+                    </Border>
+                    
+                    <Border Height="40" VerticalAlignment="Bottom">
+                        <DockPanel LastChildFill="True"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0">
+                            <StackPanel Orientation="Horizontal"
+                                        DockPanel.Dock="Right"
+                                        Spacing="8">
+                                <Button x:Name="PART_RefuseButton"
+                                        Width="70"
+                                        Height="26"
+                                        Content="Cancel"/>
+                                <Button x:Name="PART_RetryButton"
+                                        Width="70"
+                                        Height="26"
+                                        Content="Retry"
+                                        IsDefault="True"/>
+                                <Button x:Name="PART_IgnoreButton"
+                                        Width="70"
+                                        Height="26"
+                                        Content="Ignore"/>
+                            </StackPanel>
+                            <Rectangle/>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|ActionBox Button#PART_CloseButton">
+        <Setter Property="Width" Value="12"/>
+        <Setter Property="Height" Value="12"/>
+        <Setter Property="CornerRadius" Value="6"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|ActionBox Button#PART_CloseButton">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsCloseButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsCloseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="local|ActionBox Button#PART_CloseButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsCloseButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsCloseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="local|ActionBox Button#PART_CloseButton:pressed">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsCloseButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsCloseButtonBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="local|ActionBox Button#PART_CloseButton:focus">
+        <Setter Property="Background" Value="{DynamicResource CaptionButtonsCloseButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource CaptionButtonsCloseButtonBorderBrush}"/>
+    </Style>
+</Styles>
