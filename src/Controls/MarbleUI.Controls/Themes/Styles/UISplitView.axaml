@@ -20,7 +20,7 @@
                     <Grid DockPanel.Dock="Left"
                           x:Name="PART_SplitPaneContentGrid"
                           Width="{TemplateBinding SplitPaneLength}">
-                        <ContentPresenter/>
+                        <ContentPresenter Content="{TemplateBinding SplitPaneContent}"/>
                         <Rectangle Fill="{DynamicResource DefaultSplitterBrush}"
                                    Width="1"
                                    HorizontalAlignment="Right"

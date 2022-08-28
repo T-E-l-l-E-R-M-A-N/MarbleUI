@@ -17,4 +17,5 @@
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/UISplitView.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/ActionBox.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/ActionSheet.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/NavigationList.axaml"/>
 </Styles>

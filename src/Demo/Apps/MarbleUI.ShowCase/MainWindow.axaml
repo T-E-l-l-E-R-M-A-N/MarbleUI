@@ -9,7 +9,7 @@
                    Title="MarbleUI.ShowCase"
                    FontFamily="SF NS Display"
                    Foreground="{DynamicResource DefaultForegroundBrush}">
-    <controls:UISplitView PaneAlignment="Top"
+    <controls:UISplitView PaneAlignment="Left"
                           SplitPaneLength="207"
                           x:Name="UiSplitView">
         
@@ -89,6 +89,49 @@
                 </Grid>
             </controls:UIToolBar>
         </controls:UISplitView.ToolBar>
+        <controls:UISplitView.SplitPaneContent>
+            <controls:NavigationList SelectedIndex="3"
+                                     Margin="0,53,0,0"
+                                     SelectedItem="{Binding SelectedTabViewModel, Mode=TwoWay}"
+                                     Items="{Binding SimpleTabViewModelsCollection}">
+                <controls:NavigationList.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="* Auto"
+                              Height="24"
+                              Width="{Binding $parent[ListBoxItem].Bounds.Width}">
+                            <Button Classes="tabViewItemCloseButton"
+                                    Height="24"
+                                    Grid.Column="2"
+                                    Command="{Binding CloseCommand}"
+                                    CommandParameter="{Binding}"
+                                    Width="{Binding $self.Bounds.Height}">
+                                <Viewbox Stretch="None">
+                                    <Canvas Width="16" Height="16">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0" />
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources />
+                                        <Path Fill="{DynamicResource UIIconFillBrush}">
+                                            <Path.Data>
+                                                <PathGeometry
+                                                    Figures="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                                                />
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                            <TextBlock Text="{Binding Header}"
+                                       FontSize="12"
+                                       Grid.ColumnSpan="2"
+                                       TextAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="25,0"/>
+                        </Grid>
+                    </DataTemplate>
+                </controls:NavigationList.ItemTemplate>
+            </controls:NavigationList>
+        </controls:UISplitView.SplitPaneContent>
         <controls:TabView ItemStripAlignment="Top"
                           TabStripIsVisible="{Binding TabStripIsVisibleKey, Mode=TwoWay}"
                           x:Name="TabView"

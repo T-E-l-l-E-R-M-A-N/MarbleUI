@@ -14,6 +14,7 @@
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/UIIconBrushes.axaml"/>
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/ToolBarBrushes.axaml"/>
                 <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/CaptionButtonsBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Light/Resources/NavListBrushes.axaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
@@ -25,4 +26,5 @@
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/RadioButton.axaml"/>
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/TextBox.axaml"/>
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/Expander.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/ListBoxItem.axaml"/>
 </Styles>

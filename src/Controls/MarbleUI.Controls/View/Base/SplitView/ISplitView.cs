@@ -8,5 +8,6 @@ namespace MarbleUI.Controls
         double SplitPaneLength { get; set; }
         bool SplitPaneIsVisible { get; set; }
         Alignment PaneAlignment { get; set; }
+        object SplitPaneContent { get; set; }
     }
 }

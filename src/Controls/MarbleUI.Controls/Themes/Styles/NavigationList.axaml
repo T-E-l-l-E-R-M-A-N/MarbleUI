@@ -1,0 +1,68 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- UIView Styles -->
+    <Style Selector="local|NavigationList">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="local:NavigationList">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              HorizontalContentAlignment="Left"
+                              Padding="0,25">
+                    <StackPanel Orientation="Vertical">
+                        <Border IsVisible="{TemplateBinding TopContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                            <Grid>
+                                <ContentControl Margin="0,0,0,1"
+                                                Content="{TemplateBinding TopContent}"/>
+                                <Rectangle Height="1"
+                                           VerticalAlignment="Bottom"
+                                           Fill="{DynamicResource DefaultSplitterBrush}"/>
+                            </Grid>
+                        </Border>
+                        <ItemsPresenter Items="{TemplateBinding Items}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        ItemTemplate="{TemplateBinding ItemTemplate}"
+                                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            
+                        </ItemsPresenter>
+                    </StackPanel>
+                </ScrollViewer>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="local|NavigationList ListBoxItem">
+        <Setter Property="MinHeight" Value="25"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="5,0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultForegroundBrush}"/>
+    </Style>
+    
+    <Style Selector="local|NavigationList">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultForegroundBrush}"/>
+        
+    </Style>
+    <Style Selector="local|NavigationList ListBoxItem:nth-child(2n+3)">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultForegroundBrush}"/>
+    </Style>
+    
+    <Style Selector="local|NavigationList ListBoxItem:selected">
+        <Setter Property="Background" Value="{DynamicResource NavListSelectedItemBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultForegroundBrush}"/>
+    </Style>
+    
+    <Style Selector="local|NavigationList ListBoxItem:nth-child(2n+3):selected">
+        <Setter Property="Background" Value="{DynamicResource NavListSelectedItemBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultForegroundBrush}"/>
+    </Style>
+</Styles>

@@ -22,6 +22,9 @@ namespace MarbleUI.Controls
 
         public static readonly StyledProperty<Alignment> PaneAlignmentProperty =
             AvaloniaProperty.Register<SplitViewBase, Alignment>("PaneAlignment");
+        
+        public static readonly StyledProperty<object> SplitPaneContentProperty =
+            AvaloniaProperty.Register<SplitViewBase, object>("SplitPaneContent");
 
         #endregion
         
@@ -53,6 +56,12 @@ namespace MarbleUI.Controls
         {
             get => GetValue(PaneAlignmentProperty);
             set => SetValue(PaneAlignmentProperty, value);
+        }
+
+        public object SplitPaneContent
+        {
+            get => GetValue(SplitPaneContentProperty);
+            set => SetValue(SplitPaneContentProperty, value);
         }
         #endregion
         

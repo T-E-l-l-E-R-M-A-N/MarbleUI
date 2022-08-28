@@ -179,28 +179,31 @@
                                       Content="{TemplateBinding Content}"
                    BorderBrush="{DynamicResource DefaultSplitterBrush}"
                                       BorderThickness="0.5,0"
+                                      Background="{TemplateBinding Background}"
                                       />
                 </ControlTemplate>
             </Setter>
         </Style>
     
-        <Style Selector="local|TabView > ListBoxItem /template/ ContentControl">
+        <Style Selector="local|TabView > ListBoxItem">
             <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource DefaultForegroundBrush}"/>
         </Style>
         
-        <Style Selector="local|TabView > ListBoxItem:pointerover /template/ ContentControl">
+        <Style Selector="local|TabView > ListBoxItem:pointerover">
             <Setter Property="Background" Value="{DynamicResource ToolBarControlItemPointerOverBrush}"/>
         </Style>
     
-        <Style Selector="local|TabView > ListBoxItem:pressed /template/ ContentControl">
+        <Style Selector="local|TabView > ListBoxItem:pressed">
             <Setter Property="Background" Value="{DynamicResource DefaultSplitterBrush}"/>
         </Style>
     
-        <Style Selector="local|TabView > ListBoxItem:selected /template/ ContentControl">
+        <Style Selector="local|TabView > ListBoxItem:selected">
             <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource DefaultForegroundBrush}"/>
         </Style>
     
-        <Style Selector=":is(Window)[IsActive=False] local|TabView > ListBoxItem:selected /template/ ContentControl">
+        <Style Selector=":is(Window)[IsActive=False] local|TabView > ListBoxItem:selected">
             <Setter Property="Background" Value="{DynamicResource DefaultControlInactiveBrush}"/>
         </Style>
     </Styles>
@@ -219,7 +222,15 @@
             <Setter Property="Opacity" Value="1"/>
             <Setter Property="CornerRadius" Value="0"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderThickness" Value="0,0,1,0"/>
+        </Style>
+        
+        <Style Selector="local|NavigationList Button.tabViewItemCloseButton:pointerover /template/ ContentControl">
+            <Setter Property="Opacity" Value="1"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource DefaultSplitterBrush}"/>
+            <Setter Property="BorderThickness" Value="1,0,0,0"/>
         </Style>
         
         <Style Selector="Button.tabViewItemCloseButton:pressed /template/ ContentControl">
