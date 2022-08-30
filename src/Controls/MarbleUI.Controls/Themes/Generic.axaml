@@ -18,4 +18,6 @@
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/ActionBox.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/ActionSheet.axaml"/>
     <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/NavigationList.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/MenuContainer.axaml"/>
+    <StyleInclude Source="avares://MarbleUI.Controls/Themes/Styles/MenuItem.axaml"/>
 </Styles>

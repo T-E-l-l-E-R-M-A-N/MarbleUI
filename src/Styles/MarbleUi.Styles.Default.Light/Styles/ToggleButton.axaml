@@ -8,10 +8,6 @@
 
     <!-- Add Styles Here -->
     <Style Selector="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="CornerRadius" Value="5"/>
         <Setter Property="Template">
             <ControlTemplate TargetType="ToggleButton">
                 <ContentControl Background="{TemplateBinding Background}"
@@ -27,23 +23,35 @@
             </ControlTemplate>
         </Setter>
     </Style>
+
+	<Style Selector="ToggleButton">
+		<Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="CornerRadius" Value="5"/>
+	</Style>
     
-    <Style Selector="ToggleButton:pointerover /template/ ContentControl">
+    <Style Selector="ToggleButton:pointerover">
         <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
     </Style>
     
-    <Style Selector="ToggleButton:pressed /template/ ContentControl">
+    <Style Selector="ToggleButton:pointerover:pressed">
         <Setter Property="RenderTransform" Value="scale(1)"/>
         <Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
     </Style>
+
+	<Style Selector="ToggleButton:pressed">
+		<Setter Property="RenderTransform" Value="scale(1)"/>
+		<Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
+	</Style>
     
-    <Style Selector="ToggleButton:checked /template/ ContentControl">
+    <Style Selector="ToggleButton:checked">
         <Setter Property="Background" Value="{DynamicResource DefaultControlBorderBrush}"/>
     </Style>
     
-    <Style Selector="ToggleButton:focus /template/ ContentControl">
-        <Setter Property="BorderThickness" Value="4"/>
+    <Style Selector="ToggleButton:focusl">
+		<Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}"/>
     </Style>
     

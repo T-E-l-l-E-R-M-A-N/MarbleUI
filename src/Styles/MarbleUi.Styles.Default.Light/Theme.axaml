@@ -20,6 +20,8 @@
     </Styles.Resources>
 
     <!-- Add Styles Here -->
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/Slider.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/ProgressBar.axaml"/>
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/Button.axaml"/>
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/ToggleButton.axaml"/>
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/CheckBox.axaml"/>
@@ -27,4 +29,7 @@
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/TextBox.axaml"/>
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/Expander.axaml"/>
     <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/ListBoxItem.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/MenuItem.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/ComboBox.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Light/Styles/ComboBoxItem.axaml"/>
 </Styles>

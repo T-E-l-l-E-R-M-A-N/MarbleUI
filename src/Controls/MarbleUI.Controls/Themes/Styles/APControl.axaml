@@ -43,7 +43,7 @@
                     
                     <DockPanel LastChildFill="True"
                                Margin="10,20">
-                        <Slider Classes="apControlVolSlider" Maximum="{TemplateBinding VolumeMaximum}"
+                        <Slider Maximum="{TemplateBinding VolumeMaximum}"
                                 Value="{TemplateBinding Volume, Mode=TwoWay}"
                                 Margin="10,0"
                                 Background="{DynamicResource DefaultControlInactiveBrush}"
@@ -74,7 +74,6 @@
                                 Margin="10,0"
                                 IsVisible="{TemplateBinding IsSupportsRewinding}"
                                 DockPanel.Dock="Top"
-                                Background="{DynamicResource DefaultControlInactiveBrush}"
                                 Foreground="{DynamicResource DefaultControlInactiveBrush}" />
                         <ContentControl Content="{TemplateBinding Content}"
                                         ContentTemplate="{TemplateBinding Content}"
@@ -274,7 +273,7 @@
             </Style>
 
             <Style Selector="Slider.apControlPosSlider /template/ Thumb#thumb:pressed">
-                <Setter Property="Opacity" Value="0.5" />
+				<Setter Property="Opacity" Value="1" />
             </Style>
 
             <Style Selector="Slider.apControlPosSlider /template/ Track#PART_Track">
@@ -296,58 +295,54 @@
                 
                 <Setter Property="MinWidth" Value="40" />
                 <Setter Property="MinHeight" Value="20" />
-                <Setter Property="Template">
-                    <ControlTemplate>
-                        <Grid Name="grid">
-                            <Border Name="TrackBackground" Height="2" Margin="0,0" VerticalAlignment="Center" />
-                            <Track Name="PART_Track" IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
-                                   Orientation="Horizontal">
-                                <Track.DecreaseButton>
-                                    <RepeatButton Name="PART_DecreaseButton"
-                                                  Classes="repeattrack"
-                                                  Opacity="0"/>
-                                </Track.DecreaseButton>
-                                <Track.IncreaseButton>
-                                    <RepeatButton Name="PART_IncreaseButton"
-                                                  Classes="repeattrack" 
-                                                  Opacity="0"/>
-                                </Track.IncreaseButton>
-                                <Thumb Name="thumb" >
-                                    <Thumb.Template>
-                                        <ControlTemplate>
-                                            <Border CornerRadius="{TemplateBinding CornerRadius}"
-                                                    Background="{TemplateBinding Foreground}" />
-                                        </ControlTemplate>
-                                    </Thumb.Template>
-                                </Thumb>
-                            </Track>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter>
+				<Setter Property="Template">
+					<ControlTemplate>
+						<Grid Name="grid">
+							<Border Height="2" Margin="0,0" VerticalAlignment="Center" />
+							<ProgressBar Name="TrackBackground" Height="2" Background="{DynamicResource DefaultSplitterBrush}" Foreground="{TemplateBinding Foreground}"
+										 Value="{TemplateBinding Value, Mode=TwoWay}"
+										 Orientation="Horizontal" Margin="0,0"/>
+							<Track Name="PART_Track" IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+								   Orientation="Horizontal">
+								<Track.DecreaseButton>
+									<RepeatButton Name="PART_DecreaseButton"
+												  Classes="repeattrack"
+												  Opacity="0"/>
+								</Track.DecreaseButton>
+								<Track.IncreaseButton>
+									<RepeatButton Name="PART_IncreaseButton"
+												  Classes="repeattrack"
+												  Opacity="0"/>
+								</Track.IncreaseButton>
+								<Thumb Name="thumb" >
+									<Thumb.Template>
+										<ControlTemplate>
+											<Border CornerRadius="{TemplateBinding CornerRadius}"
+													Background="{DynamicResource DefaultControlBrush}"
+													BorderThickness="1"
+													Opacity="1"
+													BorderBrush="{DynamicResource DefaultSplitterBrush}"/>
+										</ControlTemplate>
+									</Thumb.Template>
+								</Thumb>
+							</Track>
+						</Grid>
+					</ControlTemplate>
+				</Setter>
             </Style>
 
             <Style Selector="Slider.apControlVolSlider /template/ Thumb#thumb">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <DoubleTransition Property="Opacity" Duration="0:0:0.2"/>
-                        <DoubleTransition Property="Height" Duration="0:0:0.2"/>
-                        <DoubleTransition Property="Width" Duration="0:0:0.2"/>
-                    </Transitions>
-                </Setter>
-            </Style>
-
-            <Style Selector="Slider.apControlVolSlider /template/ Thumb#thumb">
-                <Setter Property="Width" Value="16" />
-                <Setter Property="Height" Value="16" />
-                <Setter Property="CornerRadius" Value="8" />
-                <Setter Property="Opacity" Value="1" />
+                <Setter Property="Width" Value="20" />
+                <Setter Property="Height" Value="20" />
+                <Setter Property="CornerRadius" Value="10" />
+				<Setter Property="Opacity" Value="1" />
                 <Setter Property="Foreground" Value="{DynamicResource DefaultControlBrush}" />
             </Style>
 
             <Style Selector="Slider.apControlVolSlider /template/ Thumb#thumb:pressed">
-                <Setter Property="Opacity" Value="0.90" />
                 <Setter Property="Width" Value="20" />
                 <Setter Property="Height" Value="20" />
+				<Setter Property="Opacity" Value="1" />
                 <Setter Property="CornerRadius" Value="10" />
             </Style>
 

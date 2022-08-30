@@ -1,0 +1,63 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MarbleUI.Controls">
+   
+   <!-- Menu Container -->
+	<Style Selector="local|MenuContainer[Orientation=Horizontal]">
+		<Setter Property="Template">
+			<ControlTemplate TargetType="local:MenuContainer">
+				<Border Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+					<DockPanel VerticalAlignment="Center"
+							   Margin="5,0"
+							   LastChildFill="True">
+						<TextBlock DockPanel.Dock="Left"
+								   Margin="5,0"
+								   FontWeight="Bold"
+								    Text="{TemplateBinding Title}"/>
+						<ItemsPresenter Items="{TemplateBinding Items}"
+										ItemTemplate="{TemplateBinding ItemTemplate}">
+							<ItemsPresenter.ItemsPanel>
+								<ItemsPanelTemplate>
+									<StackPanel Orientation="Horizontal"/>
+								</ItemsPanelTemplate>
+							</ItemsPresenter.ItemsPanel>
+						</ItemsPresenter>
+					</DockPanel>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="local|MenuContainer[Orientation=Vertical]">
+		<Setter Property="Template">
+			<ControlTemplate TargetType="local:MenuContainer">
+				<Border Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+					<DockPanel VerticalAlignment="Center"
+							   Margin="5,0"
+							   LastChildFill="True">
+						<TextBlock DockPanel.Dock="Top"
+								   Margin="5,0"
+								   VerticalAlignment="Center"
+								   TextAlignment="Center"
+								   FontWeight="Bold"
+								   Text="{TemplateBinding Title}"/>
+						<ItemsPresenter Items="{TemplateBinding Items}"
+										ItemTemplate="{TemplateBinding ItemTemplate}">
+							<ItemsPresenter.ItemsPanel>
+								<ItemsPanelTemplate>
+									<StackPanel Orientation="Vertical"/>
+								</ItemsPanelTemplate>
+							</ItemsPresenter.ItemsPanel>
+						</ItemsPresenter>
+					</DockPanel>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+</Styles>

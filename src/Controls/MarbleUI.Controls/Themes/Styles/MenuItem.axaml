@@ -1,0 +1,227 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MarbleUI.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!--  Add Styles Here  -->
+	<Style Selector="local|MenuContainer local|MenuItem">
+		<Setter Property="MinHeight" Value="25"/>
+		<Setter Property="MinWidth" Value="50"/>
+		<Setter Property="Template">
+			<ControlTemplate TargetType="local:MenuItem">
+				<Border Background="{TemplateBinding Background}">
+					<Grid>
+						<TextBlock Text="{TemplateBinding Content}"
+							   TextAlignment="Center"
+							   VerticalAlignment="Center"
+								   Foreground="{TemplateBinding Foreground}"/>
+						<Popup x:Name="PART_Popup" PlacementMode="Bottom"
+							  StaysOpen="True">
+							<Border CornerRadius="0,0,5,5"
+									Background="{DynamicResource DefaultControlInactiveBrush}"
+									BorderBrush="{DynamicResource DefaultControlBorderBrush}"
+									BorderThickness="1,0,1,1"
+									MinWidth="200"
+									
+									MinHeight="50">
+								<ItemsPresenter Margin="0,5" Items="{TemplateBinding Items}"/>
+							</Border>
+						</Popup>
+					</Grid>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="local|MenuItem local|MenuItem">
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Template">
+			<ControlTemplate TargetType="local:MenuItem">
+				<Border Background="{TemplateBinding Background}">
+					<Grid>
+						<TextBlock Text="{TemplateBinding Content}"
+							   TextAlignment="Left"
+								   Margin="20,0,5,0"
+							   VerticalAlignment="Center"
+								   Foreground="{TemplateBinding Foreground}"/>
+						<Rectangle Height="1" VerticalAlignment="Bottom" Fill="{DynamicResource DefaultControlBorderBrush}"/>
+						<Popup x:Name="PART_Popup" PlacementMode="Right"
+							   VerticalOffset="-6"
+							   StaysOpen="True"
+							   IsOpen="{TemplateBinding IsMenuOpen, Mode=TwoWay}">
+							<Border CornerRadius="5,5,5,5"
+									Background="{DynamicResource DefaultControlInactiveBrush}"
+									BorderBrush="{DynamicResource DefaultControlBorderBrush}"
+									BorderThickness="1,1,1,1"
+									MinWidth="200"
+									
+									MinHeight="50">
+								<ItemsPresenter Margin="0,5" Items="{TemplateBinding Items}"/>
+							</Border>
+						</Popup>
+						<Viewbox Margin="2,0" Stretch="Uniform"
+								 HorizontalAlignment="Right"
+								 Width="12" Height="12"
+								 x:Name="PART_ListItemsIcon">
+							<Canvas Width="14" Height="14"
+									Margin="-6,-2,6,2">
+								<Canvas.RenderTransform>
+									<TranslateTransform X="0" Y="0" />
+								</Canvas.RenderTransform>
+								<Canvas.Resources />
+								<Path Fill="{TemplateBinding Foreground}">
+									<Path.Data>
+										<PathGeometry Figures="F1 M16,16z M0,0z M12.14,8.753L6.658,13.549C6.012,14.115,5,13.655,5,12.796L5,3.204A1,1,0,0,1,6.659,2.451L12.139,7.247A1,1,0,0,1,12.139,8.753z"
+                                                      FillRule="NonZero" />
+									</Path.Data>
+								</Path>
+							</Canvas>
+						</Viewbox>
+					</Grid>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="local|MenuItem local|MenuItem[IsCheckable=True]">
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Template">
+			<ControlTemplate TargetType="local:MenuItem">
+				<Border Background="{TemplateBinding Background}">
+					<Grid>
+						<Viewbox Margin="5,0" Stretch="Uniform"
+								 IsVisible="{TemplateBinding IsChecked}"
+								 HorizontalAlignment="Left"
+								 Width="18" Height="18">
+							<Canvas Width="14" Height="14"
+									Margin="-6,-2,6,2">
+								<Canvas.RenderTransform>
+									<TranslateTransform X="0" Y="0" />
+								</Canvas.RenderTransform>
+								<Canvas.Resources />
+								<Path Fill="{TemplateBinding Foreground}">
+									<Path.Data>
+										<PathGeometry Figures="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"
+                                                      FillRule="NonZero" />
+									</Path.Data>
+								</Path>
+							</Canvas>
+						</Viewbox>
+						<TextBlock Text="{TemplateBinding Content}"
+							   TextAlignment="Left"
+								   Margin="20,0,5,0"
+							   VerticalAlignment="Center"
+								   Foreground="{TemplateBinding Foreground}"/>
+						<Rectangle Height="1" VerticalAlignment="Bottom" Fill="{DynamicResource DefaultControlBorderBrush}"/>
+						<Popup x:Name="PART_Popup" PlacementMode="Right"
+							   VerticalOffset="-6"
+						   StaysOpen="True"
+							   IsOpen="{TemplateBinding IsMenuOpen, Mode=TwoWay}">
+							<Border CornerRadius="5,5,5,5"
+									Background="{DynamicResource DefaultControlInactiveBrush}"
+									BorderBrush="{DynamicResource DefaultControlBorderBrush}"
+									BorderThickness="1,1,1,1"
+									MinWidth="200"
+									
+									MinHeight="50">
+								<ItemsPresenter Margin="0,5" Items="{TemplateBinding Items}"/>
+							</Border>
+						</Popup>
+						<Viewbox Margin="2,0" Stretch="Uniform"
+								 HorizontalAlignment="Right"
+								 Width="12" Height="12"
+								 x:Name="PART_ListItemsIcon">
+							<Canvas Width="14" Height="14"
+									Margin="-6,-2,6,2">
+								<Canvas.RenderTransform>
+									<TranslateTransform X="0" Y="0" />
+								</Canvas.RenderTransform>
+								<Canvas.Resources />
+								<Path Fill="{TemplateBinding Foreground}">
+									<Path.Data>
+										<PathGeometry Figures="F1 M16,16z M0,0z M12.14,8.753L6.658,13.549C6.012,14.115,5,13.655,5,12.796L5,3.204A1,1,0,0,1,6.659,2.451L12.139,7.247A1,1,0,0,1,12.139,8.753z"
+                                                      FillRule="NonZero" />
+									</Path.Data>
+								</Path>
+							</Canvas>
+						</Viewbox>
+					</Grid>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="local|MenuItem local|MenuItem[IsCheckable=True][IsRadioButtonMode=True]">
+		<Setter Property="Height" Value="18"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Template">
+			<ControlTemplate TargetType="local:MenuItem">
+				<Border Background="{TemplateBinding Background}">
+					<Grid>
+						<Ellipse Margin="5,0" Width="6" Height="6"
+								 Fill="{TemplateBinding Foreground}"
+								 IsVisible="{TemplateBinding IsChecked}"
+								 HorizontalAlignment="Left"/>
+						<TextBlock Text="{TemplateBinding Content}"
+							   TextAlignment="Left"
+								   Margin="20,0,5,0"
+							   VerticalAlignment="Center"
+								   Foreground="{TemplateBinding Foreground}"/>
+						<Rectangle Height="1" VerticalAlignment="Bottom" Fill="{DynamicResource DefaultControlBorderBrush}"/>
+						<Popup x:Name="PART_Popup" PlacementMode="Right"
+							   VerticalOffset="-6"
+							   IsOpen="{TemplateBinding IsMenuOpen, Mode=TwoWay}">
+							<Border CornerRadius="5,5,5,5"
+									Background="{DynamicResource DefaultControlInactiveBrush}"
+									BorderBrush="{DynamicResource DefaultControlBorderBrush}"
+									BorderThickness="1,1,1,1"
+									Width="200"
+									Height="100">
+								<ItemsPresenter Margin="0,5" Items="{TemplateBinding Items}"/>
+							</Border>
+						</Popup>
+						<Viewbox Margin="5,0" Stretch="Uniform"
+								 HorizontalAlignment="Right"
+								 Width="12" Height="12"
+								 x:Name="PART_ListItemsIcon">
+							<Canvas Width="14" Height="14"
+									Margin="-6,-2,6,2">
+								<Canvas.RenderTransform>
+									<TranslateTransform X="0" Y="0" />
+								</Canvas.RenderTransform>
+								<Canvas.Resources />
+								<Path Fill="{TemplateBinding Foreground}">
+									<Path.Data>
+										<PathGeometry Figures="F1 M16,16z M0,0z M12.14,8.753L6.658,13.549C6.012,14.115,5,13.655,5,12.796L5,3.204A1,1,0,0,1,6.659,2.451L12.139,7.247A1,1,0,0,1,12.139,8.753z"
+                                                      FillRule="NonZero" />
+									</Path.Data>
+								</Path>
+							</Canvas>
+						</Viewbox>
+					</Grid>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="local|MenuItem[IsHighlighted=False]">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Foreground" Value="{DynamicResource DefaultForegroundBrush}"/>
+	</Style>
+
+	<Style Selector="local|MenuItem[IsHighlighted=True]">
+		<Setter Property="Background" Value="{DynamicResource DefaultAccentBrush}"/>
+		<Setter Property="Foreground" Value="{DynamicResource DefaultControlBrush}"/>
+	</Style>
+
+	<Style Selector="local|MenuItem:disabled">
+		<Setter Property="Opacity" Value="0.5"/>
+	</Style>
+</Styles>

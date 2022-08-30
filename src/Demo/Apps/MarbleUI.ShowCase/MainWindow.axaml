@@ -173,8 +173,25 @@
             </controls:TabView.ItemTemplate>
             <controls:TabView.ContentTemplate>
                 <DataTemplate>
-                    <Grid >
-                        <ScrollViewer>
+                    <Grid ColumnDefinitions="Auto *">
+						<controls:MenuContainer Orientation="Vertical"
+												Title="ShowCase">
+							<controls:MenuItem Content="File"/>
+							<controls:MenuItem Content="Edit"/>
+							<controls:MenuItem Content="View">
+								<controls:MenuItem.Items>
+									<controls:MenuItem Content="Sidebar" IsCheckable="True" IsChecked="{Binding #UiSplitView.SplitPaneIsVisible, Mode=TwoWay}"/>
+									<controls:MenuItem Content="Theme">
+										<controls:MenuItem.Items>
+											<controls:MenuItem Content="Light" IsCheckable="True" IsChecked="True" IsRadioButtonMode="True"/>
+											<controls:MenuItem Content="Dark" IsCheckable="True" IsRadioButtonMode="True"/>
+										</controls:MenuItem.Items>
+									</controls:MenuItem>
+								</controls:MenuItem.Items>
+							</controls:MenuItem>
+							<controls:MenuItem Content="Tools"/>
+						</controls:MenuContainer>
+                        <ScrollViewer Grid.Column="1">
                             <ScrollViewer.Styles>
                                 <Style Selector="Expander">
                                     <Setter Property="IsExpanded" Value="True" />
@@ -365,19 +382,16 @@
                                     </StackPanel>
                                 </Expander>
 
-                                <Expander Header="AudioPlayer Control" Margin="10,0">
-                                    <Border>
-                                        <Panel>
-
-                                            <controls:APControl Width="250" MediaLength="1" MediaCurrentPosition="0.4"
-                                                                VolumeMaximum="100"
-                                                                Volume="0.2"
-                                                                Padding="18"
-                                                                Background="#55222222"
-                                                                IsSupportsRewinding="True" />
-                                        </Panel>
-                                    </Border>
-                                </Expander>
+								<Expander Header="Slider" Margin="10,0">
+									<StackPanel Spacing="5">
+										<Slider Maximum="100" Width="240" Minimum="0" Value="20"/>
+										<Slider Maximum="100" Width="240" Minimum="0" Value="20" IsEnabled="False"/>
+										<StackPanel Spacing="5" Width="240" Orientation="Horizontal">
+											<Slider Maximum="100" Height="240" Minimum="0" Value="20" Orientation="Vertical"/>
+											<Slider Maximum="100" Height="240" Minimum="0" Value="20" IsEnabled="False" Orientation="Vertical"/>
+										</StackPanel>
+									</StackPanel>
+								</Expander>
                             </StackPanel>
                         </ScrollViewer>
                     </Grid>

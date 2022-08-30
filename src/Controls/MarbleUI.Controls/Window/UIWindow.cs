@@ -30,7 +30,7 @@ namespace MarbleUI.Controls
         {
             ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.NoChrome;
             ExtendClientAreaToDecorationsHint = true;
-            TransparencyLevelHint = WindowTransparencyLevel.Blur;
+            TransparencyLevelHint = WindowTransparencyLevel.None;
             MinHeight = 53;
             
             base.OnApplyTemplate(e);

@@ -85,7 +85,7 @@
     </Style>
     
     <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
-        <Setter Property="BorderThickness" Value="4"/>
+		<Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}"/>
     </Style>
