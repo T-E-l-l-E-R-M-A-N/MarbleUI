@@ -1,0 +1,186 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="Expander">
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Expander">
+                <DockPanel>
+                    <ToggleButton x:Name="ExpanderHeader"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                  HorizontalContentAlignment="Stretch"
+                                  
+                                  Content="{TemplateBinding Header}"
+                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                  IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+                                  IsEnabled="{TemplateBinding IsEnabled}"/>
+                    <Border x:Name="ExpanderContent"
+                            Opacity="0.7"
+                            Padding="0"
+                            IsVisible="{TemplateBinding IsExpanded, Mode=TwoWay}">
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+
+    <Style Selector="Expander /template/ ToggleButton">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleButton">
+                <Border Height="25">
+                    <DockPanel LastChildFill="True"
+                               Margin="0,0">
+                        <TextBlock x:Name="PART_ExpandText"
+                                   DockPanel.Dock="Right"
+                                   VerticalAlignment="Center"
+                                   IsVisible="True"
+                                   FontSize="11"
+                                   FontWeight="Bold"
+                                   Foreground="{DynamicResource DefaultForegroundBrush}"/>
+                        <ContentControl Content="{TemplateBinding Content}"
+                                        Background="Transparent"
+                                        VerticalAlignment="Center"
+                                        HorizontalContentAlignment="Left"
+                                        TextBlock.FontSize="11"
+                                        TextBlock.Foreground="{DynamicResource DefaultControlBorderBrush}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="Expander[ExpandDirection=Down] /template/ ToggleButton">
+        <Setter Property="DockPanel.Dock" Value="Top"/>
+    </Style>
+
+    <Style Selector="Expander[ExpandDirection=Up] /template/ ToggleButton">
+        <Setter Property="DockPanel.Dock" Value="Bottom"/>
+    </Style>
+
+    <Style Selector="Expander[ExpandDirection=Left] /template/ ToggleButton">
+        <Setter Property="DockPanel.Dock" Value="Right"/>
+    </Style>
+
+    <Style Selector="Expander[ExpandDirection=Right] /template/ ToggleButton">
+        <Setter Property="DockPanel.Dock" Value="Left"/>
+    </Style>
+
+    <Style Selector="Expander[IsExpanded=False] /template/ ToggleButton /template/ TextBlock#PART_ExpandText">
+        <Setter Property="Text" Value="Show"/>
+    </Style>
+    
+    <Style Selector="Expander[IsExpanded=True] /template/ ToggleButton /template/ TextBlock#PART_ExpandText">
+        <Setter Property="Text" Value="Hide"/>
+    </Style>
+    
+    <Style Selector="Expander /template/ ToggleButton /template/ TextBlock#PART_ExpandText">
+        <Setter Property="Opacity" Value="0"/>
+    </Style>
+    
+    <Style Selector="Expander /template/ ToggleButton:pointerover /template/ TextBlock#PART_ExpandText">
+        <Setter Property="Opacity" Value="0.4"/>
+    </Style>
+    
+    <Style Selector="Expander /template/ ToggleButton:pressed /template/ TextBlock#PART_ExpandText">
+        <Setter Property="Opacity" Value="1"/>
+    </Style>
+    
+    <Style Selector="Expander[ExpandDirection=Up] /template/ ToggleButton">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleButton">
+                <Border Background="Transparent"
+                        Height="25">
+                    <DockPanel LastChildFill="True"
+                               Margin="10,0">
+                        <TextBlock x:Name="PART_ExpandText"
+                                   DockPanel.Dock="Right"
+                                   VerticalAlignment="Center"
+                                   IsVisible="True"
+                                   FontSize="11"
+                                   Foreground="{DynamicResource DefaultForegroundBrush}"/>
+                        <ContentControl Content="{TemplateBinding Content}"
+                                        VerticalAlignment="Center"
+                                        HorizontalContentAlignment="Left"
+                                        TextBlock.FontSize="11"
+                                        TextBlock.Foreground="{DynamicResource DefaultControlBorderBrush}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Expander[ExpandDirection=Left] /template/ ToggleButton">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleButton">
+                <Border Background="Transparent"
+                        Height="25" RenderTransform="rotate(90)">
+                    <DockPanel LastChildFill="True"
+                               Margin="10,0"
+                               >
+                        <TextBlock x:Name="PART_ExpandText"
+                                   DockPanel.Dock="Right"
+                                   VerticalAlignment="Center"
+                                   IsVisible="True"
+                                   FontSize="11"
+                                   Foreground="{DynamicResource DefaultForegroundBrush}"/>
+                        <ContentControl Content="{TemplateBinding Content}"
+                                        VerticalAlignment="Center"
+                                        HorizontalContentAlignment="Left"
+                                        TextBlock.FontSize="11"
+                                        TextBlock.Foreground="{DynamicResource DefaultControlBorderBrush}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Expander[ExpandDirection=Right] /template/ ToggleButton">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleButton">
+                <Border Background="{TemplateBinding Background}"
+                        Height="25" RenderTransform="rotate(-90)">
+                    <DockPanel LastChildFill="True"
+                               Margin="10,0"
+                               >
+                        <TextBlock x:Name="PART_ExpandText"
+                                   DockPanel.Dock="Right"
+                                   VerticalAlignment="Center"
+                                   IsVisible="True"
+                                   FontSize="11"
+                                   Foreground="{DynamicResource DefaultForegroundBrush}"/>
+                        <ContentControl Content="{TemplateBinding Content}"
+                                        VerticalAlignment="Center"
+                                        HorizontalContentAlignment="Left"
+                                        TextBlock.FontSize="11"
+                                        TextBlock.Foreground="{DynamicResource DefaultControlBorderBrush}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Expander /template/ ToggleButton:pointerover /template/ Border">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+    
+    <Style Selector="Expander /template/ ToggleButton:pressed /template/ Border">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+</Styles>

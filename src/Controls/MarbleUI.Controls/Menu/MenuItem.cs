@@ -1,9 +1,10 @@
-﻿using Avalonia.Controls;
-using Avalonia.Controls.Generators;
-using Avalonia.Controls.Presenters;
+﻿using System.Linq;
+using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Controls.Templates;
 using Avalonia.Input;
+using Avalonia.VisualTree;
+using MarbleUI.Controls;
 
 namespace MarbleUI.Controls
 {
@@ -21,6 +22,7 @@ namespace MarbleUI.Controls
         private MenuItem? _menuItem;
         private Viewbox _iconItems;
         private Popup? _popup;
+        private MenuItemsPresenter _itemsPr;
         #endregion
 
         #region Avalonia Proeprties
@@ -47,6 +49,12 @@ namespace MarbleUI.Controls
 
         public static readonly StyledProperty<bool> IsRadioButtonModeProperty =
             AvaloniaProperty.Register<MenuItem, bool>("IsRadioButtonMode");
+
+        public static readonly StyledProperty<bool> IsHasItemsProperty =
+            AvaloniaProperty.Register<MenuItem, bool>("IsHasItems");
+
+        
+
         #endregion
 
         #region Public Proeprties
@@ -85,6 +93,11 @@ namespace MarbleUI.Controls
             get => GetValue(IsRadioButtonModeProperty);
             set => SetValue(IsRadioButtonModeProperty, value);
         }
+        public bool IsHasItems
+        {
+            get => GetValue(IsHasItemsProperty);
+            set => SetValue(IsHasItemsProperty, value);
+        }
         #endregion
 
         #region Protected Methods
@@ -93,13 +106,21 @@ namespace MarbleUI.Controls
             base.OnApplyTemplate(e);
 
             _menuContainer = this.Parent as MenuContainer;
-            _menuItem = TryGetParentMenuItem(this);
+            _menuItem = TryGetParentMenuItemByStyleHost(this);
+
+            _itemsPr = e.NameScope.Find<MenuItemsPresenter>("PART_ItemsPresenter");
 
             _iconItems = e.NameScope.Find<Viewbox>("PART_ListItemsIcon");
 
-            if(Items.OfType<object>().Count() == 0 && _iconItems != null)
+            if (_itemsPr != null) _itemsPr.CallCreateItemContainerGeneratorMethod();
+
+            if (Items != null)
             {
-                _iconItems.IsVisible = false;
+                IsHasItems = true;
+            }
+            else
+            {
+                IsHasItems = false;
             }
 
             _popup = e.NameScope.Find<Popup>("PART_Popup");
@@ -139,21 +160,28 @@ namespace MarbleUI.Controls
             if(e.Source is MenuItem && Parent != _menuContainer)
             {
                 IsHighlighted = true;
-                if (Items.OfType<object>().Count() == 0)
+                try
                 {
-                    if (_popup != null)
+                    if (Items.OfType<object>().Count() == 0)
                     {
-                        IsMenuOpen = false;
-                        _popup.IsOpen = IsMenuOpen;
+                        if (_popup != null)
+                        {
+                            IsMenuOpen = false;
+                            _popup.IsOpen = IsMenuOpen;
+                        }
+                    }
+                    else
+                    {
+                        if (_popup != null)
+                        {
+                            IsMenuOpen = true;
+                            _popup.IsOpen = IsMenuOpen;
+                        }
                     }
                 }
-                else
+                catch
                 {
-                    if (_popup != null) 
-                    {
-                        IsMenuOpen = true;
-                        _popup.IsOpen = IsMenuOpen;
-                    }
+
                 }
             }
             else
@@ -168,13 +196,15 @@ namespace MarbleUI.Controls
             base.OnPointerPressed(e);
             if (_menuContainer != null)
             {
-
-                if (Items.OfType<object>().Count() > 0)
+                if (Items != null)
                 {
-                    if (_popup != null)
+                    if (Items.OfType<object>().Any())
                     {
-                        IsMenuOpen = true;
-                        _popup.IsOpen = IsMenuOpen;
+                        if (_popup != null)
+                        {
+                            IsMenuOpen = true;
+                            _popup.IsOpen = IsMenuOpen;
+                        }
                     }
                 }
                 IsHighlighted = true;
@@ -182,21 +212,7 @@ namespace MarbleUI.Controls
 
             if (IsCheckable)
             {
-                if (IsRadioButtonMode)
-                {
-                    foreach(MenuItem item in _menuItem.Items)
-                    {
-                        if(item != this && item.Group == this.Group)
-                        {
-                            item.IsChecked = false;
-                        }
-                    }
-                    IsChecked = true;
-                }
-                else
-                {
-                    IsChecked = !IsChecked;
-                }
+                IsChecked = !IsChecked;
             }
         }
 
@@ -224,7 +240,7 @@ namespace MarbleUI.Controls
         #endregion
 
         #region Private Events
-        private MenuItem TryGetParentMenuItem(IStyleHost visual)
+        private MenuItem TryGetParentMenuItemByStyleHost(IStyleHost visual)
         {
             if(visual != null)
             {
@@ -238,7 +254,24 @@ namespace MarbleUI.Controls
                 return null;
             }
 
-            return TryGetParentMenuItem(visual.StylingParent);
+            return TryGetParentMenuItemByStyleHost(visual.StylingParent);
+        }
+
+        private MenuItem TryGetParentMenuItemByInteractive(IInteractive interactive)
+        {
+            if (interactive != null)
+            {
+                if (interactive.InteractiveParent is MenuItem m)
+                {
+                    return m;
+                }
+            }
+            else
+            {
+                return null;
+            }
+
+            return TryGetParentMenuItemByInteractive(interactive.InteractiveParent);
         }
         #endregion
     }

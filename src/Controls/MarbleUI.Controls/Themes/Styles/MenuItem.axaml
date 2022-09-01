@@ -16,12 +16,13 @@
 			<ControlTemplate TargetType="local:MenuItem">
 				<Border Background="{TemplateBinding Background}">
 					<Grid>
-						<TextBlock Text="{TemplateBinding Content}"
-							   TextAlignment="Center"
+						<ContentControl Content="{TemplateBinding Content}"
+							   HorizontalContentAlignment="Center"
 							   VerticalAlignment="Center"
 								   Foreground="{TemplateBinding Foreground}"/>
 						<Popup x:Name="PART_Popup" PlacementMode="Bottom"
-							  StaysOpen="True">
+							  StaysOpen="True"
+                              IsOpen="{TemplateBinding IsMenuOpen, Mode=TwoWay}">
 							<Border CornerRadius="0,0,5,5"
 									Background="{DynamicResource DefaultControlInactiveBrush}"
 									BorderBrush="{DynamicResource DefaultControlBorderBrush}"
@@ -29,7 +30,7 @@
 									MinWidth="200"
 									
 									MinHeight="50">
-								<ItemsPresenter Margin="0,5" Items="{TemplateBinding Items}"/>
+								<local:MenuItemsPresenter x:Name="PART_ItemsPresenter" Margin="0,5" Items="{TemplateBinding Items}"/>
 							</Border>
 						</Popup>
 					</Grid>
@@ -45,15 +46,15 @@
 			<ControlTemplate TargetType="local:MenuItem">
 				<Border Background="{TemplateBinding Background}">
 					<Grid>
-						<TextBlock Text="{TemplateBinding Content}"
-							   TextAlignment="Left"
-								   Margin="20,0,5,0"
-							   VerticalAlignment="Center"
-								   Foreground="{TemplateBinding Foreground}"/>
+						<ContentControl Content="{TemplateBinding Content}"
+                                        HorizontalContentAlignment="Left"
+                                        Margin="20,0,5,0"
+                                        VerticalAlignment="Center"
+                                        Foreground="{TemplateBinding Foreground}"/>
 						<Rectangle Height="1" VerticalAlignment="Bottom" Fill="{DynamicResource DefaultControlBorderBrush}"/>
 						<Popup x:Name="PART_Popup" PlacementMode="Right"
 							   VerticalOffset="-6"
-							   StaysOpen="True"
+                               StaysOpen="False"
 							   IsOpen="{TemplateBinding IsMenuOpen, Mode=TwoWay}">
 							<Border CornerRadius="5,5,5,5"
 									Background="{DynamicResource DefaultControlInactiveBrush}"
@@ -62,12 +63,13 @@
 									MinWidth="200"
 									
 									MinHeight="50">
-								<ItemsPresenter Margin="0,5" Items="{TemplateBinding Items}"/>
+								<local:MenuItemsPresenter x:Name="PART_ItemsPresenter" Margin="0,5" Items="{TemplateBinding Items}"/>
 							</Border>
 						</Popup>
 						<Viewbox Margin="2,0" Stretch="Uniform"
 								 HorizontalAlignment="Right"
 								 Width="12" Height="12"
+                                 IsVisible="{TemplateBinding IsHasItems}"
 								 x:Name="PART_ListItemsIcon">
 							<Canvas Width="14" Height="14"
 									Margin="-6,-2,6,2">
@@ -114,15 +116,15 @@
 								</Path>
 							</Canvas>
 						</Viewbox>
-						<TextBlock Text="{TemplateBinding Content}"
-							   TextAlignment="Left"
-								   Margin="20,0,5,0"
-							   VerticalAlignment="Center"
-								   Foreground="{TemplateBinding Foreground}"/>
+                        <ContentControl Content="{TemplateBinding Content}"
+                                        HorizontalContentAlignment="Left"
+                                        Margin="20,0,5,0"
+                                        VerticalAlignment="Center"
+                                        Foreground="{TemplateBinding Foreground}"/>
 						<Rectangle Height="1" VerticalAlignment="Bottom" Fill="{DynamicResource DefaultControlBorderBrush}"/>
 						<Popup x:Name="PART_Popup" PlacementMode="Right"
 							   VerticalOffset="-6"
-						   StaysOpen="True"
+                               StaysOpen="False"
 							   IsOpen="{TemplateBinding IsMenuOpen, Mode=TwoWay}">
 							<Border CornerRadius="5,5,5,5"
 									Background="{DynamicResource DefaultControlInactiveBrush}"
@@ -131,12 +133,13 @@
 									MinWidth="200"
 									
 									MinHeight="50">
-								<ItemsPresenter Margin="0,5" Items="{TemplateBinding Items}"/>
+								<local:MenuItemsPresenter x:Name="PART_ItemsPresenter" Margin="0,5" Items="{TemplateBinding Items}"/>
 							</Border>
 						</Popup>
 						<Viewbox Margin="2,0" Stretch="Uniform"
 								 HorizontalAlignment="Right"
 								 Width="12" Height="12"
+								 IsVisible="{TemplateBinding IsHasItems}"
 								 x:Name="PART_ListItemsIcon">
 							<Canvas Width="14" Height="14"
 									Margin="-6,-2,6,2">
@@ -169,27 +172,29 @@
 								 Fill="{TemplateBinding Foreground}"
 								 IsVisible="{TemplateBinding IsChecked}"
 								 HorizontalAlignment="Left"/>
-						<TextBlock Text="{TemplateBinding Content}"
-							   TextAlignment="Left"
-								   Margin="20,0,5,0"
-							   VerticalAlignment="Center"
-								   Foreground="{TemplateBinding Foreground}"/>
+                        <ContentControl Content="{TemplateBinding Content}"
+                                        HorizontalContentAlignment="Left"
+                                        Margin="20,0,5,0"
+                                        VerticalAlignment="Center"
+                                        Foreground="{TemplateBinding Foreground}"/>
 						<Rectangle Height="1" VerticalAlignment="Bottom" Fill="{DynamicResource DefaultControlBorderBrush}"/>
 						<Popup x:Name="PART_Popup" PlacementMode="Right"
 							   VerticalOffset="-6"
-							   IsOpen="{TemplateBinding IsMenuOpen, Mode=TwoWay}">
+							   StaysOpen="False"
+                               IsOpen="{TemplateBinding IsMenuOpen, Mode=TwoWay}">
 							<Border CornerRadius="5,5,5,5"
 									Background="{DynamicResource DefaultControlInactiveBrush}"
 									BorderBrush="{DynamicResource DefaultControlBorderBrush}"
 									BorderThickness="1,1,1,1"
 									Width="200"
 									Height="100">
-								<ItemsPresenter Margin="0,5" Items="{TemplateBinding Items}"/>
+								<local:MenuItemsPresenter x:Name="PART_ItemsPresenter" Margin="0,5" Items="{TemplateBinding Items}"/>
 							</Border>
 						</Popup>
 						<Viewbox Margin="5,0" Stretch="Uniform"
 								 HorizontalAlignment="Right"
 								 Width="12" Height="12"
+                                 IsVisible="{TemplateBinding IsHasItems}"
 								 x:Name="PART_ListItemsIcon">
 							<Canvas Width="14" Height="14"
 									Margin="-6,-2,6,2">

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using Avalonia.Controls;
 using Avalonia.Controls.Generators;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Presenters;
@@ -20,6 +21,8 @@ namespace MarbleUI.Controls
 
         #endregion
 
+        private MenuItemsPresenter _itemsPr;
+
         #region Avalonia Properties
 
         public static readonly StyledProperty<string> TitleProperty =
@@ -27,6 +30,7 @@ namespace MarbleUI.Controls
 
         public static readonly StyledProperty<Orientation> OrientationProperty =
             AvaloniaProperty.Register<MenuContainer, Orientation>("Orientation");
+
 
         #endregion
 
@@ -42,6 +46,27 @@ namespace MarbleUI.Controls
             get => GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
+        #endregion
+
+        #region Protected Methods
+
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        {
+            base.OnApplyTemplate(e);
+
+            _itemsPr = e.NameScope.Find<MenuItemsPresenter>("PART_ItemsPresenter");
+
+            if (_itemsPr != null)
+            {
+                _itemsPr.CallCreateItemContainerGeneratorMethod();
+            }
+        }
+
+        //protected override IItemContainerGenerator CreateItemContainerGenerator()
+        //{
+        //    return new ItemContainerGenerator<MenuItem>(this, MenuItem.ContentProperty, null);
+        //}
+
         #endregion
 
     }

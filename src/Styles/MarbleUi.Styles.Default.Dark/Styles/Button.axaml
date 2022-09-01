@@ -1,0 +1,53 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="Button">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <ContentControl Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Content="{TemplateBinding Content}"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                ContentTemplate="{TemplateBinding ContentTemplate}">
+                    
+                </ContentControl>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Button:pointerover">
+    </Style>
+    
+    <Style Selector="Button:pressed">
+        <Setter Property="RenderTransform" Value="scale(1)"/>
+        <Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DefaultControlBrush}"/>
+    </Style>
+    
+    <Style Selector="Button:focus">
+		<Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}"/>
+    </Style>
+
+	<Style Selector=":is(Window)[IsActive=False] Button">
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}" />
+	</Style>
+    
+    <Style Selector="Button:disabled">
+        <Setter Property="Opacity" Value="0.8"/>
+    </Style>
+</Styles>

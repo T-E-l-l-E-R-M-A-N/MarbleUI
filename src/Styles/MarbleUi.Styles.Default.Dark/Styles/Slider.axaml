@@ -1,0 +1,131 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+	<Style Selector="Slider[Orientation=Horizontal]">
+
+		<Setter Property="MinWidth" Value="40" />
+		<Setter Property="MinHeight" Value="20" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid Name="grid">
+					<Border Height="2" Margin="0,0" VerticalAlignment="Center" />
+					<ProgressBar Name="TrackBackground" Height="2" Background="{DynamicResource DefaultSplitterBrush}" Foreground="{TemplateBinding Foreground}"
+								 Value="{TemplateBinding Value, Mode=TwoWay}"
+								 Orientation="Horizontal" Margin="0,0"/>
+					<Track Name="PART_Track" IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+						   Orientation="Horizontal">
+						<Track.DecreaseButton>
+							<RepeatButton Name="PART_DecreaseButton"
+										  Classes="repeattrack"
+										  Opacity="0"/>
+						</Track.DecreaseButton>
+						<Track.IncreaseButton>
+							<RepeatButton Name="PART_IncreaseButton"
+										  Classes="repeattrack"
+										  Opacity="0"/>
+						</Track.IncreaseButton>
+						<Thumb Name="thumb" >
+							<Thumb.Template>
+								<ControlTemplate>
+									<Border CornerRadius="{TemplateBinding CornerRadius}"
+											Background="{DynamicResource DefaultControlBrush}" 
+											BorderThickness="1"
+											Opacity="1"
+											BorderBrush="{DynamicResource DefaultSplitterBrush}"/>
+								</ControlTemplate>
+							</Thumb.Template>
+						</Thumb>
+					</Track>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="Slider[Orientation=Vertical]">
+
+		<Setter Property="MinWidth" Value="40" />
+		<Setter Property="MinHeight" Value="20" />
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid Name="grid">
+					<Border Width="2" Margin="0,0" HorizontalAlignment="Center" />
+					<ProgressBar Name="TrackBackground" Margin="0,5" Width="2" Background="{DynamicResource DefaultSplitterBrush}" Foreground="{TemplateBinding Foreground}"
+								 Value="{TemplateBinding Value, Mode=TwoWay}"
+								 Orientation="Vertical"/>
+					<Track Name="PART_Track" IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+						   Orientation="Vertical">
+						<Track.DecreaseButton>
+							<RepeatButton Name="PART_DecreaseButton"
+										  Classes="repeattrack"
+										  Opacity="0"/>
+						</Track.DecreaseButton>
+						<Track.IncreaseButton>
+							<RepeatButton Name="PART_IncreaseButton"
+										  Classes="repeattrack"
+										  Opacity="0"/>
+						</Track.IncreaseButton>
+						<Thumb Name="thumb" >
+							<Thumb.Template>
+								<ControlTemplate>
+									<Border CornerRadius="{TemplateBinding CornerRadius}"
+											Background="{DynamicResource DefaultControlBrush}" 
+											BorderThickness="1"
+											Opacity="1"
+											BorderBrush="{DynamicResource DefaultSplitterBrush}"/>
+								</ControlTemplate>
+							</Thumb.Template>
+						</Thumb>
+					</Track>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="Slider /template/ ProgressBar#TrackBackground">
+		<Setter Property="BorderThickness" Value="0" />
+
+		<Setter Property="Background" Value="{DynamicResource DefaultAccentBrush}" />
+	</Style>
+
+	<Style Selector="Slider /template/ Thumb#thumb">
+		<Setter Property="Transitions">
+			<Transitions>
+				<DoubleTransition Property="Height" Duration="0:0:0.2"/>
+				<DoubleTransition Property="Width" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="Slider /template/ Thumb#thumb">
+		<Setter Property="Width" Value="20" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Opacity" Value="1" />
+		<Setter Property="CornerRadius" Value="10" />
+		<Setter Property="Foreground" Value="{DynamicResource DefaultControlBrush}" />
+	</Style>
+
+	<Style Selector="Slider /template/ Thumb#thumb:pressed">
+		<Setter Property="Width" Value="20" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Opacity" Value="1" />
+		<Setter Property="CornerRadius" Value="10" />
+	</Style>
+
+	<Style Selector="Slider /template/ Track#PART_Track">
+		<Setter Property="Minimum" Value="{TemplateBinding Minimum}" />
+		<Setter Property="Maximum" Value="{TemplateBinding Maximum}" />
+		<Setter Property="Value" Value="{TemplateBinding Value, Mode=TwoWay}" />
+	</Style>
+
+	<Style Selector="Slider:disable /template/ ProgressBar#TrackBackground">
+		<Setter Property="BorderThickness" Value="0" />
+
+		<Setter Property="Background" Value="{DynamicResource DefaultSplitterBrush}" />
+	</Style>
+</Styles>

@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{DF2F913D-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{B5DAE0EB-BC08-4CD8-A6A7-85F8ADB5360C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarbleUi.Styles.Default.Dark", "src\Styles\MarbleUi.Styles.Default.Dark\MarbleUi.Styles.Default.Dark.csproj", "{0DAB83DA-0A0C-4D4E-B81D-D980E46A6F35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{E7A3AFD8-235C-4C26-8F67-A57E10ED3B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7A3AFD8-235C-4C26-8F67-A57E10ED3B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7A3AFD8-235C-4C26-8F67-A57E10ED3B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DAB83DA-0A0C-4D4E-B81D-D980E46A6F35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DAB83DA-0A0C-4D4E-B81D-D980E46A6F35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DAB83DA-0A0C-4D4E-B81D-D980E46A6F35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DAB83DA-0A0C-4D4E-B81D-D980E46A6F35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{E7A3AFD8-235C-4C26-8F67-A57E10ED3B15} = {B5DAE0EB-BC08-4CD8-A6A7-85F8ADB5360C}
 		{DF2F913D-B23A-41B5-B564-0EE5677B9C6E} = {7022A2C5-7B02-4D9B-BF9B-02AAC2FC03D4}
 		{B5DAE0EB-BC08-4CD8-A6A7-85F8ADB5360C} = {DF2F913D-B23A-41B5-B564-0EE5677B9C6E}
+		{0DAB83DA-0A0C-4D4E-B81D-D980E46A6F35} = {F96D98E0-2761-44E4-A246-E6FB375D8FC7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9094A379-8533-4C57-B0BB-282474DEE3F5}

@@ -11,7 +11,8 @@
                    Foreground="{DynamicResource DefaultForegroundBrush}">
     <controls:UISplitView PaneAlignment="Left"
                           SplitPaneLength="207"
-                          x:Name="UiSplitView">
+                          x:Name="UiSplitView"
+                          SplitPaneIsVisible="{Binding SideBarIsVisible, Mode=TwoWay}">
         
         <controls:UISplitView.ToolBar>
             <controls:UIToolBar IsToolBarVisible="True" Height="53" ToolBarMode="OnlyIcon">
@@ -19,7 +20,7 @@
                     <StackPanel Orientation="Horizontal">
 
                         <controls:UIToolBarItem Margin="2.5,0" Label="Sidebar">
-                            <ToggleButton IsChecked="{Binding #UiSplitView.SplitPaneIsVisible, Mode=TwoWay}">
+                            <ToggleButton IsChecked="{Binding SideBarIsVisible, Mode=TwoWay}">
                                 <Viewbox Stretch="None">
                                     <Canvas Width="16" Height="16">
                                         <Canvas.RenderTransform>
@@ -173,25 +174,22 @@
             </controls:TabView.ItemTemplate>
             <controls:TabView.ContentTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="Auto *">
-						<controls:MenuContainer Orientation="Vertical"
-												Title="ShowCase">
-							<controls:MenuItem Content="File"/>
-							<controls:MenuItem Content="Edit"/>
-							<controls:MenuItem Content="View">
-								<controls:MenuItem.Items>
-									<controls:MenuItem Content="Sidebar" IsCheckable="True" IsChecked="{Binding #UiSplitView.SplitPaneIsVisible, Mode=TwoWay}"/>
-									<controls:MenuItem Content="Theme">
-										<controls:MenuItem.Items>
-											<controls:MenuItem Content="Light" IsCheckable="True" IsChecked="True" IsRadioButtonMode="True"/>
-											<controls:MenuItem Content="Dark" IsCheckable="True" IsRadioButtonMode="True"/>
-										</controls:MenuItem.Items>
-									</controls:MenuItem>
-								</controls:MenuItem.Items>
-							</controls:MenuItem>
-							<controls:MenuItem Content="Tools"/>
-						</controls:MenuContainer>
-                        <ScrollViewer Grid.Column="1">
+                    <Grid RowDefinitions="Auto *">
+                        <controls:MenuContainer Orientation="Horizontal"
+                                                Title="ShowCase"
+                                                Items="{Binding MenuCollection}">
+                            <controls:MenuContainer.Styles>
+                                <Style Selector="controls|MenuItem">
+                                    <Setter Property="Items" Value="{Binding Items}"/>
+                                    <Setter Property="Content" Value="{Binding Header}"/>
+                                    <Setter Property="IsCheckable" Value="{Binding IsCheckable}"/>
+                                    <Setter Property="IsChecked" Value="{Binding IsChecked, Mode=TwoWay}"/>
+                                    <Setter Property="IsRadioButtonMode" Value="{Binding IsRadioButtonMode}"/>
+                                    <Setter Property="Group" Value="{Binding Group}"/>
+                                </Style>
+                            </controls:MenuContainer.Styles>
+                        </controls:MenuContainer>
+                        <ScrollViewer Grid.Row="1">
                             <ScrollViewer.Styles>
                                 <Style Selector="Expander">
                                     <Setter Property="IsExpanded" Value="True" />

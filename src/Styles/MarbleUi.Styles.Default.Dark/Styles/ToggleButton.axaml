@@ -1,0 +1,61 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="ToggleButton">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleButton">
+                <ContentControl Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Content="{TemplateBinding Content}"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                ContentTemplate="{TemplateBinding ContentTemplate}">
+                    
+                </ContentControl>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+	<Style Selector="ToggleButton">
+		<Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="CornerRadius" Value="5"/>
+	</Style>
+    
+    <Style Selector="ToggleButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultControlBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="ToggleButton:pointerover:pressed">
+        <Setter Property="RenderTransform" Value="scale(1)"/>
+        <Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
+    </Style>
+
+	<Style Selector="ToggleButton:pressed">
+		<Setter Property="RenderTransform" Value="scale(1)"/>
+		<Setter Property="Background" Value="{DynamicResource PressedButtonBrush}"/>
+	</Style>
+    
+    <Style Selector="ToggleButton:checked">
+        <Setter Property="Background" Value="{DynamicResource DefaultControlBorderBrush}"/>
+    </Style>
+    
+    <Style Selector="ToggleButton:focusl">
+		<Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DefaultFocusedControlAccentBrush}"/>
+    </Style>
+    
+    <Style Selector="ToggleButton:disabled">
+        <Setter Property="Opacity" Value="0.8"/>
+    </Style>
+</Styles>

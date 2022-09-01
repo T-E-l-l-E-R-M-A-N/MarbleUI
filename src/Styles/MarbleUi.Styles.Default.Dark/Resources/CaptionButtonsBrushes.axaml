@@ -1,0 +1,10 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Add Resources Here -->
+    <SolidColorBrush x:Key="CaptionButtonsCloseButtonBackgroundBrush" Color="#FF5A5A"/>
+    <SolidColorBrush x:Key="CaptionButtonsCloseButtonBorderBrush" Color="#E54043"/>
+    <SolidColorBrush x:Key="CaptionButtonsMinimiseButtonBackgroundBrush" Color="#FFBB4B"/>
+    <SolidColorBrush x:Key="CaptionButtonsMinimiseButtonBorderBrush" Color="#E2A040"/>
+    <SolidColorBrush x:Key="CaptionButtonsFullScreenButtonBackgroundBrush" Color="#00C955"/>
+    <SolidColorBrush x:Key="CaptionButtonsFullScreenButtonBorderBrush" Color="#14AE46"/>
+</ResourceDictionary>

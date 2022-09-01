@@ -1,0 +1,35 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Dark/Resources/AccentBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Dark/Resources/ButtonBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Dark/Resources/GenericBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Dark/Resources/UIIconBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Dark/Resources/ToolBarBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Dark/Resources/CaptionButtonsBrushes.axaml"/>
+                <ResourceInclude Source="avares://MarbleUi.Styles.Default.Dark/Resources/NavListBrushes.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+
+    <!-- Add Styles Here -->
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/Slider.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/ProgressBar.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/Button.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/ToggleButton.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/CheckBox.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/RadioButton.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/TextBox.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/Expander.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/ListBoxItem.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/MenuItem.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/ComboBox.axaml"/>
+    <StyleInclude Source="avares://MarbleUi.Styles.Default.Dark/Styles/ComboBoxItem.axaml"/>
+</Styles>
